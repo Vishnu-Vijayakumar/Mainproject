@@ -1,0 +1,53 @@
+<div class="signup-form1-div">
+<div class="form-group">
+    <input class="form-control" type="password" name="password" placeholder="Password" required>
+</div>
+<div class="form-group">
+<input class="form-control" type="password" name="cpassword" placeholder="Confirm password" required>
+</div>
+</div>
+<div class="form-group">
+<input class="form-control" type="date" name="date" placeholder="Date Of Birth" required>
+</div>
+<div class="form-group">
+<tr>
+<td>
+    Gender:
+</td>
+</tr>
+Male
+<input type="radio" checked=true name="user_gender">
+Female
+<input type="radio"  name="user_gender"> 
+</div>    
+<tr>
+Address  
+<br>  
+<textarea cols="30" rows="4" value="address">  
+    </textarea>  
+    <br> <br>  
+</tr>
+<label>   
+Phone :  
+</label>  
+<input type="text" name="country code"  value="+91" size="2"/>   
+        <input type="text" name="phone" size="10"/> <br> <br>  
+<div class="form-group">
+<input class="form-control button" type="submit" name="signup" value="Signup">
+</div>
+<div class="link login-link text-center">Already a member? <a href="login-user.php">Login here</a></div>
+</form>
+
+
+
+
+
+
+
+
+     <label>  
+                Phone<br>
+                    </label> 
+                        <input type="text" name="country code"  value="+91" size="2"/>   
+                                <input type="text" name="phone" size="10"/> <br> <br>  
+
