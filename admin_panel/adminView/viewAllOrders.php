@@ -1,7 +1,7 @@
-<div id="ordersBtn" >
-  <h2>Order Details</h2>
-  <table class="table table-striped">
-    <thead>
+<!-- <div id="ordersBtn" > -->
+  <!-- <h2>Order Details</h2> -->
+  <!-- <table class="table table-striped"> -->
+    <!-- <thead> -->
       <tr>
         <th>O.N.</th>
         <th>Customer</th>
@@ -14,11 +14,11 @@
      </tr>
     </thead>
      <?php
-      include_once "../config/dbconnect.php";
-      $sql="SELECT * from orders";
-      $result=$conn-> query($sql);
+      // include_once "../config/dbconnect.php";
+      // $sql="SELECT * from orders";
+      // $result=$conn-> query($sql);
       
-      if ($result-> num_rows > 0){
+       if ($result-> num_rows > 0){
         while ($row=$result-> fetch_assoc()) {
     ?>
        <tr>
@@ -81,13 +81,13 @@
   </div>
 <script>
      //for view order modal  
-    $(document).ready(function(){
-      $('.openPopup').on('click',function(){
-        var dataURL = $(this).attr('data-href');
+//     $(document).ready(function(){
+//       $('.openPopup').on('click',function(){
+//         var dataURL = $(this).attr('data-href');
     
-        $('.order-view-modal').load(dataURL,function(){
-          $('#viewModal').modal({show:true});
-        });
-      });
-    });
- </script>
+//         $('.order-view-modal').load(dataURL,function(){
+//           $('#viewModal').modal({show:true});
+//         });
+//       });
+//     });
+//  </script>

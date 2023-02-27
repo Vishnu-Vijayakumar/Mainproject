@@ -13,9 +13,9 @@
     <?php
        
         //echo $ID;
-        $sql="SELECT * from product_size_variation v, order_details d 
-        where v.variation_id=d.variation_id AND
-        d.order_id=$ID";
+        // $sql="SELECT * from product_size_variation v, order_details d 
+        // where v.variation_id=d.variation_id AND
+        // d.order_id=$ID";
         $result=$conn-> query($sql);
         $count=1;
         if ($result-> num_rows > 0){

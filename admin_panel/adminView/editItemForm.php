@@ -37,6 +37,11 @@
       <input type="text" class="form-control" id="p_desc" value="<?=$row1['book_des']?>">
     </div>
     <div class="form-group">
+      <label for="desc">Book Author:</label>
+      <input type="text" class="form-control" id="p_author" value="<?=$row1['book_author']?>">
+    </div>
+
+    <div class="form-group">
       <label for="price">Unit Price:</label>
       <input type="number" class="form-control" id="p_price" value="<?=$row1['book_price']?>">
     </div>
@@ -64,10 +69,10 @@
       </select>
     </div>
       <div class="form-group">
-         <img width='200px' height='150px' src='<?=$row1["product_image"]?>'>
+         <img width='200px' height='150px' src='<?=$row1["book_img"]?>'>
          <div>
             <label for="file">Choose Image:</label>
-            <input type="text" id="existingImage" class="form-control" value="<?=$row1['product_image']?>" hidden>
+            <input type="text" id="existingImage" class="form-control" value="<?=$row1['book_img']?>" hidden>
             <input type="file" id="newImage" value="">
          </div>
     </div>

@@ -34,7 +34,7 @@
               <a class="nav-link active" aria-current="page" href="sellerindex.php">Home</a>
             </li>
             <li class="nav-item">
-              <a type="button" class="btn btn-primary nav-link active" href="Add.php">Add New</a>
+              <a type="button" class="btn btn-primary nav-link active" href="./selleradd/Addbook.php">Add New Book</a>
             </li>
           </ul>
         </div>
@@ -45,55 +45,72 @@
     <thead>
       <tr>
         <!-- <th>Product Id</th> -->
+        <th>Book No</th>
+        <th>Book Image</th>
         <th>Book Name</th>
+        <th>Book Author</th>
+        <th>Book Category</th>
         <th>Book Price</th>
-        <th>Category</th>
-        <th>Language</th>
-        <th>Upload image</th>
 
         <th>ACTIONS</th>
       </tr>
     </thead>
     <tbody>
-   
-      <?php
-        include "connection.php";
-        $sql = "select * from tbl_bookinfo";
-        $result = $conn->query($sql);
-        if(!$result){
-          die("Invalid query!");
-        }
-        while($row=$result->fetch_assoc()){
+    <?php
+      $server = "localhost";
+      $user = "root";
+      $password = "";
+      $db = "bookstore";
 
-          $url = $row['book_img'];
-          $formatted_url = filter_var($url, FILTER_SANITIZE_URL);
-          if (filter_var($formatted_url, FILTER_VALIDATE_URL) !== false) {
-            $image= $url;
-          } else {
-            $pimage= "../".$url;
-          }
+      $conn = mysqli_connect($server,$user,$password,$db);
 
-          echo "
-      <tr>
-       
-        <td><p id='s_name'>$row[book_name]</p></td>
-        <td>$row[book_price]</td>
-        <td>$row[book_category]</td>
-        <td><p id='s_feature'>$row[book_language]</p></td>
-        <td><img id='book_img' src='$book_image' alt='$row[book_img]'></td>
-        <td>
-                  <a class='btn btn-success' href='edit.php?pid=$row[book_id]'>Edit</a>
-                  <a class='btn btn-danger' href='delete.php?pid=$row[book_id]'>Delete</a>
-                </td>
+      if(!$conn) {
+        die("Connection Failed:".mysqli_connect_error());
+      }
+      $sql="SELECT * from tbl_bookinfo";
+      $result=$conn-> query($sql);
+      $count=1;
+      if ($result-> num_rows > 0){
+        while ($row=$result-> fetch_assoc()) {
+    ?>
+    <tr>
+      <td><?=$count?></td>
+      <td><?php echo '<img id="book_img" src="'.$row['book_img'].'" alt="'.$row['book_img'].'">' ?></td>
+      <td><?=$row["book_name"]?></td>
+      <td><?=$row["book_author"]?></td>      
+      
+      <!-- <td><?=$row["book_des"]?></td>  -->
+      <td><?=$row["category_name"]?></td> 
+      <td><?=$row["book_price"]?></td>      
+      <td><button class="btn btn-primary" style="height:40px" onclick="itemEditForm('<?=$row['book_id']?>')">Edit</button></td>
+      <td><button class="btn btn-danger" style="height:40px" onclick="itemDelete('<?=$row['book_id']?>')">Delete</button></td>
       </tr>
-      ";
+      <?php
+            $count=$count+1;
+          }
         }
       ?>
+  </table>
+
+      
     </tbody>
   </table>
       </div>
     
+    <script>
+        function itemEditForm(bookid){
+			window.location.href='../seller/selleradd/Editbook.php?bid='+bookid;
+        }
+    </script>
+
+<script>
+        function itemDelete(bookid){
+			window.location.href='../seller/selleradd/delete.php?bid='+bookid;
+        }
+    </script>
+
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
   </body>
 </html>

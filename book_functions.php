@@ -20,9 +20,11 @@
         $check_email = "SELECT * FROM tbl_login WHERE email = '$email' AND password='$pass'";
         $res = mysqli_query($conn, $check_email);
         if(mysqli_num_rows($res) > 0){
+            $login_details= mysqli_fetch_array($res);
             $user_details_sql= mysqli_query($conn,"SELECT * from tbl_registration where email='$email'");
             if(mysqli_num_rows($user_details_sql) > 0){
                 $user_details_res= mysqli_fetch_array($user_details_sql);
+                $_SESSION['user_loginid']=$login_details['login_id'];
                 $_SESSION['user_emailid']=$user_details_res['email'];
                 $_SESSION['user_username']=$user_details_res['username'];
                 echo "<script>alert('Success !!!');</script>";
@@ -67,10 +69,12 @@
                 $login_insert= "INSERT INTO `tbl_login`(`login_id`, `email`, `password`) VALUES (null,'$email','$encpass')";
                 $login_res= mysqli_query($conn,$login_insert);
                 if($login_insert){
+                    $log_details= mysqli_fetch_array($login_res);
+                    $_SESSION['user_loginid']=$log_details['login_id'];
                     $_SESSION['user_emailid']=$email;
                     $_SESSION['user_username']=$name;
                     echo "<script>alert('Success !!!');</script>";
-                    header('location: ../MiniProject/bookstore/index.html');
+                    header('location:index.php');
                 }
                 else{
                     echo "<script>alert('Registration Failed !!!');</script>";

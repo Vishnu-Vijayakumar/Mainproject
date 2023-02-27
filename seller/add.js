@@ -1,11 +1,12 @@
 function validate($check) {
 
 
-    var p_name = document.getElementById("pName");
-    var p_price = document.getElementById("pPrice");
-    var p_offer = document.getElementById("pOffer");
-    var p_feature = document.getElementById("pFeature");
-    var p_image = document.getElementById("pImage");
+    var b_name = document.getElementById("pname'");
+    var b_price = document.getElementById("pprice");
+    var b_price=document.getElementById("pauthor");
+    var bcategory = document.getElementById("pOffer");
+    var blanguage = document.getElementById("language");
+    var b_image = document.getElementById("pImage");
 
 
 

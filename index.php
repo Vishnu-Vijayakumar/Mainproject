@@ -91,8 +91,10 @@
                 ?>
             </div>
         </div>
+        
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
+          
                 <li class="active"><a href="index.php">Home</a></li>
                 <li><a href="shop-grid.php">Shop</a></li>
                 <li><a href="#">Pages</a>
@@ -100,10 +102,10 @@
                         <li><a href=".bookstore/shop-details.html">Shop Details</a></li>
                         <li><a href=".bookstore/shoping-cart.html">Shoping Cart</a></li>
                         <li><a href=".bookstore/checkout.html">Check Out</a></li>
-                        <li><a href=".bookstore/blog-details.html">Seller</a></li>
+                        <li><a href="seller/sellerlogin/Sellerlogin.php">Start selling</a></li>
                     </ul>
                 </li>
-                <li><a href="./blog.html">Seller</a></li>
+                <li><a href="../seller/sellerindex.php">Seller</a></li>
                 <li><a href="./contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -116,8 +118,8 @@
         </div>
         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
+                <!-- <li><i class="fa fa-envelope"></i> hello@colorlib.com</li> -->
+                <!-- <li>Free Shipping for all Order of $99</li> -->
             </ul>
         </div>
     </div>
@@ -131,8 +133,8 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
+                                <!-- <li><i class="fa fa-envelope"></i> hello@colorlib.com</li> -->
+                                <!-- <li>Free Shipping for all Order of $99</li> -->
                             </ul>
                         </div>
                     </div>
@@ -170,11 +172,14 @@
                 </div>
             </div>
         </div>
+        
         <div class="container">
             <div class="row">
+                
                 <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="index.php"><img src="img/logo.png" alt=""></a>
+                    <div class="header__logo" style="display:flex;justify-content:center;align-items:center;">
+                        <!-- <a href="index.php"><img src="img/logo.png" alt=""></a> -->
+                        <h3 style="margin-top:10px;">BOOKSPARKLED<h3>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -187,7 +192,7 @@
                                     <li><a href="./shop-details.html">Shop Details</a></li>
                                     <li><a href="./shoping-cart.html">Shoping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Seller</a></li>
+                                    <li><a href="seller/sellerlogin/Sellerlogin.php">Start selling</a></li>
                                 </ul>
                             </li>
                             <li><a href="./blog.html">Blog</a></li>
@@ -201,7 +206,7 @@
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                        <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
                     </div>
                 </div>
             </div>
@@ -254,7 +259,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
+                                <!-- <h5>+65 11.188.888</h5> -->
                                 <span>support 24/7 time</span>
                             </div>
                         </div>

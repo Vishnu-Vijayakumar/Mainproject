@@ -11,10 +11,18 @@
     <a href="#customers"  onclick="showCustomers()" ><i class="fa fa-users"></i> Customers</a>
     <a href="#category"   onclick="showCategory()" ><i class="fa fa-th-large"></i> Category</a>
     <a href="#sizes"   onclick="showSizes()" ><i class="fa fa-th"></i> Language </a>
-    <!-- <a href="#productsizes"   onclick="showProductSizes()" ><i class="fa fa-th-list"></i> Book Status</a>     -->
+    <a href="#sellers"  onclick="showSellers()" ><i class="fa fa-users"></i> Sellers</a>   
     <a href="#products"   onclick="showProductItems()" ><i class="fa fa-th"></i> Books</a>
     <a href="#orders" onclick="showOrders()"><i class="fa fa-list"></i> Orders</a>
-    <a href="#Logout"   onclick="Logout()" ><i class="fa fa-th-list"></i> Logout</a>    
+    <a href="#Logout"   onclick="Logout()" ><i class="fa fa-th-list"></i> Logout</a>  
+
+
+    
+   if(isset_$POST['Logout']))
+    // {
+    //     session_destroy()
+    }
+
   
   <!---->
 </div>

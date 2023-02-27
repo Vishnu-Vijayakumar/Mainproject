@@ -7,7 +7,7 @@
         <th class="text-center">S.N.</th>
         <th class="text-center">Book Image</th>
         <th class="text-center">Book Name</th>
-        <th class="text-center">Book Description</th>
+        <th class="text-center">Book Author</th>
         <th class="text-center">Book Category</th>
         <th class="text-center">Book Price</th>
         <th class="text-center" colspan="2">Action</th>
@@ -33,8 +33,10 @@
     <tr>
       <td><?=$count?></td>
       <td><?php echo '<img id="book_img" src="'.$row['book_img'].'" alt="'.$row['book_img'].'">' ?></td>
-      <td><?=$row["book_name"]?></td>      
-      <td><?=$row["book_des"]?></td> 
+      <td><?=$row["book_name"]?></td>
+      <td><?=$row["book_author"]?></td>      
+      
+       <!-- <td><?=$row["book_des"]?></td> -->
       <td><?=$row["category_name"]?></td> 
       <td><?=$row["book_price"]?></td>      
       <td><button class="btn btn-primary" style="height:40px" onclick="itemEditForm('<?=$row['book_id']?>')">Edit</button></td>
@@ -47,9 +49,10 @@
       ?>
   </table>
 
-  <!-- Trigger the modal with a button -->
+  <Trigger the modal with a button>
   <button type="button" class="btn btn-secondary " style="height:40px" onsubmit="addItems();" data-toggle="modal" data-target="#myModal">
-    Add Books
+  Add Books
+   
   </button>
 
   <!-- Modal -->

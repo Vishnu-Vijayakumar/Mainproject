@@ -41,10 +41,11 @@
                     ?>
                     <div class="signup-form1-div">
                         <div class="form-group">
-                            <input class="form-control" type="text" id="first_name" onchange="firstNameValidate();" name="first_name" placeholder="First Name" required>
+                            <input class="form-control" type="text" id="first_name" onchange="firstNameValidate()" name="first_name" placeholder="First Name" required>
                         </div>
+                        
                         <div class="form-group">
-                        <input class="form-control" type="text" id="last_name" onchange="lastNameValidate();" name="last_name" placeholder="Last Name" required>
+                        <input class="form-control" type="text" id="last_name" onchange="lastNameValidate()" name="last_name" placeholder="Last Name" required>
 
                         </div>
                     </div>
@@ -54,13 +55,13 @@
                             <input class="form-control" type="text" name="name" placeholder="User Name" required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="email" onchange="emailValidate();" name="email" placeholder="Email Address" required>
+                            <input class="form-control" type="email" onchange="emailValidate()" name="email" placeholder="Email Address" required>
                         </div>
                     </div>
                     
                     <div class="signup-form1-div">
                         <div class="form-group">
-                            <input class="form-control" type="password" onchange="passwordValidate();" id="password" name="password" placeholder="Password" required>
+                            <input class="form-control" type="password" onchange="passwordValidate()" id="password" name="password" placeholder="Password" required>
                         </div>
                         <div class="form-group">
                             <input class="form-control" type="password" name="cpassword" placeholder="Confirm password" required>
@@ -69,7 +70,7 @@
                     
                     <div class="form-group">
                         <input id="signin-dob" class="form-control" type="date" name="date" placeholder="Date Of Birth" required>
-                    </div>
+                    </div>      
                     
                     <div class="form-group">
                         <label class="label">Gender</label>
@@ -127,7 +128,7 @@
             var regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
             var password= document.getElementById("password").value;
             if(!regularExpression.test(password)){
-                    alert("invalid password!!");
+                    alert("Please enter a suitable password");
             }
         }
         function emailValidate()
