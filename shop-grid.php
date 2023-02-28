@@ -579,9 +579,9 @@
                             <a href="index.php"><img src="img/logo.png" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
+                        <li>Address: Kanjirappally Near private bus stand</li>
+                            <li>Phone: 9594595792</li>
+                            <li>Email: booksparkled@gmail.com</li>
                         </ul>
                     </div>
                 </div>
@@ -593,16 +593,16 @@
                             <li><a href="#">About Our Shop</a></li>
                             <li><a href="#">Secure Shopping</a></li>
                             <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
+                            <!-- <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Our Sitemap</a></li> -->
                         </ul>
                         <ul>
                             <li><a href="#">Who We Are</a></li>
                             <li><a href="#">Our Services</a></li>
                             <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <!-- <li><a href="#">Contact</a></li>
                             <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#">Testimonials</a></li> -->
                         </ul>
                     </div>
                 </div>

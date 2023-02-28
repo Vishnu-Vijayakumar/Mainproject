@@ -2,12 +2,12 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>S.N.</th>
+            <!-- <th>S.N.</th>
             <th>Product Image</th>
             <th>Product Name</th>
             <th>Size</th>
             <th>Quantity</th>
-            <th>Unit Price</th>
+            <th>Unit Price</th> -->
         </tr>
     </thead>
     <?php

@@ -42,11 +42,12 @@
                     <div class="signup-form1-div">
                         <div class="form-group">
                             <input class="form-control" type="text" id="first_name" onchange="firstNameValidate()" name="first_name" placeholder="First Name" required>
+                            <span id="empty-first-name"></span>
                         </div>
                         
                         <div class="form-group">
                         <input class="form-control" type="text" id="last_name" onchange="lastNameValidate()" name="last_name" placeholder="Last Name" required>
-
+                        <span id="empty-last-name"></span>
                         </div>
                     </div>
                     
@@ -62,9 +63,11 @@
                     <div class="signup-form1-div">
                         <div class="form-group">
                             <input class="form-control" type="password" onchange="passwordValidate()" id="password" name="password" placeholder="Password" required>
+                            <span id="empty-password"></span>
                         </div>
                         <div class="form-group">
                             <input class="form-control" type="password" name="cpassword" placeholder="Confirm password" required>
+                            <span id="empty-verify-password"></span>
                         </div>
                     </div>
                     

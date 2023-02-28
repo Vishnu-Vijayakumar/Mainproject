@@ -28,7 +28,7 @@ let emptyPasswordError = document.getElementById("empty-password");
 //Verify Password
 let verifyPasswordInput = document.getElementById("cpassword");
 let verifyPasswordError = document.getElementById("cpassword-error");
-let emptyVerifyPasswordError = document.getElementById("empty-verify-password");
+let emptyVerifyPasswordError = document.getElementById(git );
 
 //Submit
 let submitButton = document.getElementById("submit-button");

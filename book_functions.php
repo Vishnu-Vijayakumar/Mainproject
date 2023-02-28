@@ -68,9 +68,8 @@
                 // $login_insert= "INSERT INTO tbl_login ('login_id','email','password') VALUES (null,'$email','$encpass')";
                 $login_insert= "INSERT INTO `tbl_login`(`login_id`, `email`, `password`) VALUES (null,'$email','$encpass')";
                 $login_res= mysqli_query($conn,$login_insert);
-                if($login_insert){
-                    $log_details= mysqli_fetch_array($login_res);
-                    $_SESSION['user_loginid']=$log_details['login_id'];
+                if($login_insert && mysqli_affected_rows($conn) > 0){
+                    $_SESSION['user_loginid']= $conn->insert_id;
                     $_SESSION['user_emailid']=$email;
                     $_SESSION['user_username']=$name;
                     echo "<script>alert('Success !!!');</script>";
