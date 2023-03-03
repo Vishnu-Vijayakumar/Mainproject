@@ -49,11 +49,11 @@
       ?>
   </table>
 
-  <!-- <Trigger the modal with a button>
+  <Trigger the modal with a button>
   <button type="button" class="btn btn-secondary " style="height:40px" onsubmit="addItems();" data-toggle="modal" data-target="#myModal">
   Add Books
    
-  </button> -->
+  </button> 
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">

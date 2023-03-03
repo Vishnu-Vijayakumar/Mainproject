@@ -213,7 +213,7 @@
     <script src="vendor/datepicker/daterangepicker.js"></script>
 
     <!-- Main JS-->
-    <script src="js/global.js"></script>
+    <script src="global.js"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
