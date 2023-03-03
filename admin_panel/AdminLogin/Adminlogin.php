@@ -34,7 +34,7 @@ if(isset($_POST['Login']))
 <html lang="en" dir="ltr">
    <head>
       <meta charset="utf-8">
-      <title>Login Form Design | CodeLab</title>
+      <title>Login Form Design |</title>
       <link rel="stylesheet" href="style.css">
    </head>
    <body>

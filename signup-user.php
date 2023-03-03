@@ -146,7 +146,7 @@
                     }
     </script>
 
-
+<script src="./validation/sell.js"></script>
     
 </body>
 </html>

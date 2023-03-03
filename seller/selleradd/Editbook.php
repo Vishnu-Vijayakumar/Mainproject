@@ -1,19 +1,6 @@
 <?php
   include "connection.php";
  
-
- $bid="";
-  $bname ="";
-  $bauthor="";
-  $bprice ="";
-  $bcategory ="";
-  $blanguage ="";
-  $bimg="";
-
-
-
-
-
   $error="";
   $success="";
 
@@ -32,7 +19,7 @@
     }
     $bname=$row["book_name"];
     $bprice=$row["book_price"];
-    $bauthor = $_POST['book_author'];
+    $bauthor = $row["book_author"];
     $bcategory=$row["category_name"];
     $blanguage=$row["book_language"];
     $bimg=$row["book_img"];
@@ -59,26 +46,28 @@
   $targetDir = ".,/seller/photos";
   $finalpath = "seller/photos/";
   if(isset($_POST['submit'])){
+      $bid= $_POST['bid'];
       $bname = $_POST['bname'];
       $bprice = $_POST['bprice'];
-      $bauthor = $_POST['pauthor'];
+      $bauthor = $_POST['book_author'];
       $bcategory = $_POST['poffer'];
       $blanguage = $_POST['pfeature'];
-      $bimg=$_FILES["pimage"]["name"];
-      $targetImage = $targetDir . $bimg;
-      $finaltargetImage = $finalpath . $bimg;
+      // $bimg=$_FILES["pimage"]["name"];
+      // $targetImage = $targetDir . $bimg;
+      // $finaltargetImage = $finalpath . $bimg;
      
-      move_uploaded_file($_FILES["pimage"]["tmp_name"],$targetImage);
+      // move_uploaded_file($_FILES["pimage"]["tmp_name"],$targetImage);
      
-    $sql = "update tbl_bookinfo set book_name='$bname', book_price='$bprice',book_author='$bauthor', book_category_id='$bcategory', book_language='$blanguage',book_img='$bimg' where book_id='$bid'";
+    $sql = "update tbl_bookinfo set book_name='$bname', book_price='$bprice',book_author='$bauthor', category_name='$bcategory', book_language='$blanguage' where book_id=$bid";
+    // $sql="UPDATE `tbl_bookinfo` SET `book_id`='$bid',`book_category_id`='$bcategory',`book_name`='$bname',`book_img`='$bimg',`book_price`='[value-8]',`book_language`='$blanguage ',`book_year`='[value-10]',`book_author`='[value-11]',`seller_id`='[value-12]',`category_name`='[value-13]' WHERE 1";
+    
     //$result = $conn->query($sql);
     $result= mysqli_query($conn,$sql);
     if($result){
-      echo "<script>alert('New Item updated Successfully...');</script>";
-      header('sellerindex.php');
+      echo "<script>alert('New Item updated Successfully...');window.location.href='../sellerindex.php';</script>";
   }
   else{
-    echo "<script>alert('Not updated !!');</script>";
+    echo "$result<script>alert('Not updated !!');</script>";
   }
 }
   ?>
@@ -121,13 +110,13 @@
  <h1 class="text-white text-center">  Update Products </h1>
  </div><br>
 
- <input type="hidden" id="bid" name="bid" value="<?php echo $pid; ?>" class="form-control" required> <br>
+ <input type="hidden" id="bid" name="bid" value="<?php echo $bid; ?>" class="form-control" required> <br>
 
  <label> Book Name: </label>
  <input type="text" id="pname" name="bname" value="<?php echo $bname; ?>" class="form-control" required > <br>
 
  <label> Book Author: </label>
- <input type="text" id="bauthor" name="pauthor" value="<?php echo $bauthor; ?>" class="form-control" required > <br>
+ <input type="text" id="bauthor" name="book_author" value="<?php echo $bauthor; ?>" class="form-control" required > <br>
 
  <label> Book Price: </label>
  <input type="text" id="price" name="bprice" value="<?php echo $bprice; ?>" class="form-control" required> <br>
@@ -138,8 +127,8 @@
  <label> Book Language: </label>
  <input type="text" id="pfeauture" name="pfeature" value="<?php echo $blanguage; ?>" class="form-control" required> <br>
 
- <label> Upload Image: </label>
- <input type="file" id="pimge" name="pimage" class="form-control"> <br>
+ <!-- <label> Upload Image: </label>
+ <input type="file" id="pimge" name="pimage" class="form-control"> <br> -->
 
  <input type="submit" class="btn btn-success" value="edit" name="submit"><br>
  <a class="btn btn-info" type="submit" name="cancel" href="sellerindex.php"> Cancel </a><br>

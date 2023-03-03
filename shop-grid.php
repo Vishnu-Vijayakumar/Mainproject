@@ -240,7 +240,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <!-- <h5>+65 11.188.888</h5> -->
+                                <h5>9594595792</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -252,12 +252,12 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/posters.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="banner5.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Organi Shop</h2>
+                        <h2>BOOKSPARKLED</h2>
                         <div class="breadcrumb__option">
                             <a href="index.php">Home</a>
                             <span>Shop</span>

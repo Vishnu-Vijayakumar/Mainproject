@@ -28,7 +28,7 @@ let emptyPasswordError = document.getElementById("empty-password");
 //Verify Password
 let verifyPasswordInput = document.getElementById("cpassword");
 let verifyPasswordError = document.getElementById("cpassword-error");
-let emptyVerifyPasswordError = document.getElementById(git );
+let emptyVerifyPasswordError = document.getElementById("empty-verify-password");
 
 //Submit
 let submitButton = document.getElementById("submit-button");
@@ -51,9 +51,9 @@ const textVerify = (text) => {
 };
 
 //Phone number verification
-const phoneVerify = (number) => {
+const phoneVerify = (phone) => {
   const regex = /^[1-9][0-9]{9}$/;
-  return regex.test(number);
+  return regex.test(phone);
 };
 
 

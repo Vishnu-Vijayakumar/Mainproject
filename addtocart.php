@@ -8,9 +8,11 @@
 
         $sql= "INSERT INTO tbl_cart VALUES(null, $user_id, $prod_id, $quantity)";
         $cart_res= mysqli_query($conn, $sql);
+        
         if($cart_res){
             echo "<script>
                 alert('Book added to cart successfully.');
+                
                 window.location.href='shoping-cart.php?id=$prod_id';
             </script>";
         }

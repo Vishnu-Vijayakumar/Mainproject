@@ -1,4 +1,4 @@
-function itemEditForm(book_id) {
+function itemEditForm(bookid) {
     var b_name = document.getElementById("book_name");
     var b_author = document.getElementById("pauthor");
     var b_price = document.getElementById("book_price");

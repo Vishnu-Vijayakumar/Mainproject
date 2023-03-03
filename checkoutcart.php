@@ -92,6 +92,8 @@
     <link rel="stylesheet" href="bookstore/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="bookstore/css/style.css" type="text/css">
 </head>
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <body>
     <!-- Page Preloder -->
@@ -123,6 +125,10 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
+
+
+
+            
                 <a href="#"><i class="fa fa-user"></i> Login</a>
             </div>
         </div>
@@ -189,6 +195,10 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
+
+
+
+                            
                                 <a href="#"><i class="fa fa-user"></i> Login</a>
                             </div>
                         </div>
@@ -213,7 +223,7 @@
                                     <li><a href="./shop-details.html">Shop Details</a></li>
                                     <li><a href="./shoping-cart.html">Shoping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="./seller/sellerlogin/Sellerlogin.php">Become a seller</a></li>
                                 </ul>
                             </li>
                             <li><a href="./blog.html">Blog</a></li>
@@ -270,7 +280,7 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
+                                <h5>9594595792</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
@@ -282,7 +292,7 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="banner5.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -414,15 +424,15 @@
                                 <div class="checkout__order__subtotal">Subtotal <span>₹<?php echo $book_total_price; ?></span></div>
                                 <div class="checkout__order__total">Total <span>₹<?php echo $book_total_price; ?></span></div>
                                 <div class="checkout__input__checkbox">
-                                    <label for="acc-or">
-                                        Create an account?
+                                    <label for="acc-or">Online payment only
+                                        <!-- Create an account?
                                         <input type="checkbox" id="acc-or">
-                                        <span class="checkmark"></span>
+                                        <span class="checkmark"></span> -->
                                     </label>
                                 </div>
                                 <!-- <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
                                     ut labore et dolore magna aliqua.</p> -->
-                                <div class="checkout__input__checkbox">
+                                <!-- <div class="checkout__input__checkbox">
                                     <label for="payment">
                                         Check Payment
                                         <input type="checkbox" id="payment">
@@ -435,8 +445,10 @@
                                         <input type="checkbox" id="paypal">
                                         <span class="checkmark"></span>
                                     </label>
-                                </div>
-                                <button type="submit" name="place_order" class="site-btn">PLACE ORDER</button>
+                                </div> -->
+                                <button type="submit" name="place_order" class="site-btn">PLACE ORDER</button><br><br>
+                                
+                                <input type="button" class="site-btn" name="pay" id ="rzp-button1" value="pay now" onclick="pay_now()">
                             </div>
                         </div>
                     </div>
@@ -515,6 +527,45 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
+    <script>
+    function pay_now(){
+
+    var name=jQuery('#name').val();
+    var amt=<?php echo $book_total_price; ?>;
+    var options = {
+    "key": "rzp_test_PlbZAtajYXmhOa",
+    "amount": amt*100, 
+    "currency": "INR",
+    "name": "Books",
+    "description": "Test Transaction",
+    "image": "https://drive.google.com/file/d/1FJCNPPMhML96z3s4IrR8-yGU4A6HLm2X/view?usp=share_link",
+    "handler":function(response){
+        console.log(response);
+        jQuery.ajax({
+            type:'POST',
+            url:'payment.php',
+            data:"payment_id="+response.razorpay_payment_id+"&amt="+amt+"&name="+name,
+            success:function(result){
+                window.location.href="thankyou.php";
+            }
+
+        })
+        // if(response){
+        //     window.location.href="/adsol/index.php";
+        // }
+       
+
+    }
+};
+
+var rzp1 = new Razorpay(options);
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+
+}
+</script>
     <script src="bookstore/js/jquery-3.3.1.min.js"></script>
     <script src="bookstore/js/bootstrap.min.js"></script>
     <script src="bookstore/js/jquery.nice-select.min.js"></script>

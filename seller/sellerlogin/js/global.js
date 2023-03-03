@@ -66,5 +66,11 @@
         console.log(err);
     }
     
+    const passwordVerify = (password) => {
+        const regex =
+        /(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{5,}/;
+        return regex.test(password) && password.length >= 8;
+      };
+
 
 })(jQuery);

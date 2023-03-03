@@ -14,14 +14,9 @@
     <a href="#sellers"  onclick="showSellers()" ><i class="fa fa-users"></i> Sellers</a>   
     <a href="#products"   onclick="showProductItems()" ><i class="fa fa-th"></i> Books</a>
     <a href="#orders" onclick="showOrders()"><i class="fa fa-list"></i> Orders</a>
-    <a href="#Logout"   onclick="Logout()" ><i class="fa fa-th-list"></i> Logout</a>  
+    <!-- <a href="#Logout"   onclick="Logout()" ><i class="fa fa-th-list"></i> Logout</a>   -->
 
 
-    
-   if(isset_$POST['Logout']))
-    // {
-    //     session_destroy()
-    }
 
   
   <!---->
