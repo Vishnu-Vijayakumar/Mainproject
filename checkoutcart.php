@@ -1,5 +1,6 @@
 <?php
 
+
     include 'connection.php';
 
     if(isset($_POST['place_order'])){
@@ -67,6 +68,17 @@
 </div> -->
 
 
+
+<!-- <?php
+    // if(isset($_SESSION['user_emailid'])){
+        // $islogged=true;
+    // }
+    // else{
+        // $islogged=false;
+    // }
+// ?> -->
+
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -125,11 +137,22 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
+            <!-- <?php
+                                // if ($islogged == false) {
+                                //     echo '<a href="login-user.php"><i class="fa fa-user"></i>Login</a>';
+                                // }
+                                // else{
+                                //     echo '
+                                //         <div>'.$_SESSION["user_username"].'</div>
+                                        // <div><a href="logout-user.php">Logout</a></div>
+                                    // ';
+                                // }
+                            // ?>
 
 
 
             
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+                <!-- <a href="#"><i class="fa fa-user"></i> Login</a> -->
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -195,11 +218,22 @@
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
+                            <!-- <?php 
+                                // if ($islogged == false) {
+                                    // echo '<a href="login-user.php"><i class="fa fa-user"></i>Login</a>';
+                                // }
+                                // else{
+                                    // echo '
+                                        // <div>'.$_SESSION["user_username"].'</div>
+                                        // <div><a href="logout-user.php">Logout</a></div>
+                                    // ';
+                                // }
+                            // ?>
 
 
 
                             
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <!-- <a href="#"><i class="fa fa-user"></i> Login</a> -->
                             </div>
                         </div>
                     </div>
