@@ -354,7 +354,7 @@
             </div>
             <div class="checkout__form">
                 <h4>Billing Details</h4>
-                <form action="#">
+                <form action="checkoutaction.php" method="POST">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
@@ -480,7 +480,8 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div> -->
-                                <button type="submit" name="place_order" class="site-btn">PLACE ORDER</button><br><br>
+                                <!-- <button type="submit" name="place_order" class="site-btn">PLACE ORDER</button><br><br> -->
+                                <button type="submit" name="submit2" class="site-btn">PLACE ORDER</button><br><br>
                                 
                                 <input type="button" class="site-btn" name="pay" id ="rzp-button1" value="pay now" onclick="pay_now()">
                             </div>

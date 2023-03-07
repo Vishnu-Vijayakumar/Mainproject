@@ -35,9 +35,9 @@
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Humberger Begin -->
     <div class="humberger__menu__overlay"></div>
@@ -110,6 +110,7 @@
 
     <!-- Header Section Begin -->
     <header class="header">
+
         <div class="header__top">
             <div class="container">
                 <div class="row">
@@ -226,13 +227,21 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
+                            <form>
                                 <div class="hero__search__categories">
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                                <input type="text" name="search_bar_input" onkeyup="searchFunc();" id="search_bar_input" placeholder="What do yo u need?">
+                                <button type="submit" name="search" class="site-btn">SEARCH</button>
+                                <div class="display-box" id="db_result_box">
+                                    <div class="serch_result_row">
+                                        <a href="./shop-details.php?id=3" target="_blank">
+                                            <div class="db_img"><img src="" alt="$book_name"></div>
+                                            <div class="db_pname">Author-James Clear</div>
+                                        </a>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -537,7 +546,9 @@
                                      <?php
                                          }
                                        }
+                                       
                                      ?>
+                                     
                             
                        
                     
@@ -647,6 +658,22 @@
     <script src="bookstore/js/owl.carousel.min.js"></script>
     <script src="bookstore/js/main.js"></script>
 
+    <script>
+    function searchFunc(){
+        var search = document.getElementById("search_bar_input").value;
+        var element = document.getElementById("db_result_box");
+        element.classList.remove("hide");
+        element.classList.add("show");
+        $.ajax({
+            url:"search.php",
+            method:"POST",
+            data:{text:search},
+            success:function(data){
+                $('.display-box').html(data);
+            }
+        });
+    }
+</script>
 
 
 </body>

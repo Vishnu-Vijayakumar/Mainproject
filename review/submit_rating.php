@@ -2,6 +2,7 @@
 
 //submit_rating.php
 
+
 $server = "localhost";
 $user = "root";
 $password = "";
@@ -14,26 +15,32 @@ if(!$conn) {
 }
 
 
-if(isset($_POST["rating_data"]))
+if(isset($_POST["save_review"]))
 {
-
+	// echo"hi";
 	// $data = array(
 		$user_name=$_POST['user_name'];
 		$user_rating=$_POST['rating_data'];
 		$user_review=$_POST['user_review'];
-		$datetime=$_POST['datetime'];
+		echo"<script>alert($user_name); </script>";
+		// $datetime=$_POST['datetime'];
 
-	$query = "
-	INSERT INTO tbl_review 
-	(user_name, user_rating, user_review, datetime) 
-	VALUES (:user_name, :user_rating, :user_review, :datetime)
-	";
+	$query = "INSERT INTO tbl_review( 'user_name', 'user_rating', 'user_review')VALUES('$user_name', '$user_rating', '$user_review')";
 
-	$statement = $conn->prepare($query);
+	$statement = mysqli_query($conn,$query);
+	if($statement)
+	{
+		echo "Your Review & Rating Successfully Submitted";
 
-	$statement->execute($data);
+	}
+	else
+	{
+		echo "Your Review & Rating not Submitted";
 
-	echo "Your Review & Rating Successfully Submitted";
+	}
+
+	// $statement->execute($data);
+
 
 }
 

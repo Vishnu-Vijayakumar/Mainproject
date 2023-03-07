@@ -390,6 +390,7 @@
                                     aria-selected="false">Reviews <span>(1)</span></a>       -->
                             </li>
                         </ul>
+                        <form action="sumit_rating.php" method="POST">
                         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -485,13 +486,13 @@
                     <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
 	        	</h4>
 	        	<div class="form-group">
-	        		<input type="text" name="username" id="username" class="form-control" placeholder="Enter Your Name" />
+	        		<input type="text" name="user_name" id="username" class="form-control" placeholder="Enter Your Name" />
 	        	</div>
 	        	<div class="form-group">
 	        		<textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
 	        	</div>
 	        	<div class="form-group text-center mt-4">
-	        		<button type="button" class="btn btn-primary" id="save_review">Submit</button>
+	        		<button type="button" name="save_review" class="btn btn-primary" id="save_review">Submit</button>
 	        	</div>
 	      	</div>
     	</div>
@@ -524,17 +525,12 @@ $(document).ready(function(){
 	var rating_data = 0;
 
     $('#add_review').click(function(){
-
         $('#review_modal').modal('show');
-
     });
 
     $(document).on('mouseenter', '.submit_star', function(){
-
         var rating = $(this).data('rating');
-
         reset_background();
-
         for(var count = 1; count <= rating; count++)
         {
 
@@ -577,29 +573,30 @@ $(document).ready(function(){
     });
 
     $('#save_review').click(function(){
-
-        var username = $('#username').val();
-
+        
+        var user_name = $('#user_name');
+        alert(user_name.val());
         var user_review = $('#user_review').val();
 
-        if(username == '' || user_review == '')
-        {
+        if(user_name == '' || user_review == ''){
             alert("Please Fill Both Field");
             return false;
         }
-        else
-        {
+        else{
             $.ajax({
                 url:"submit_rating.php",
                 method:"POST",
-                data:{rating_data:rating_data, username:username, user_review:user_review},
-                success:function(data)
+                data:{rating_data:rating_data, user_name:user_name, user_review:user_review},
+                success:function(response)
                 {
                     $('#review_modal').modal('hide');
 
                     load_rating_data();
 
-                    alert(data);
+                    alert(response.status);
+                },
+                error: function () {
+                    alert("error");
                 }
             })
         }
@@ -659,13 +656,13 @@ $(document).ready(function(){
                     {
                         html += '<div class="row mb-3">';
 
-                        html += '<div class="col-sm-1"><div class="rounded-circle bg-danger text-white pt-2 pb-2"><h3 class="text-center">'+data.review_data[count].username.charAt(0)+'</h3></div></div>';
+                        html += '<div class="col-sm-1"><div class="rounded-circle bg-danger text-white pt-2 pb-2"><h3 class="text-center">'+data.review_data[count].user_name.charAt(0)+'</h3></div></div>';
 
                         html += '<div class="col-sm-11">';
 
                         html += '<div class="card">';
 
-                        html += '<div class="card-header"><b>'+data.review_data[count].username+'</b></div>';
+                        html += '<div class="card-header"><b>'+data.review_data[count].user_name+'</b></div>';
 
                         html += '<div class="card-body">';
 

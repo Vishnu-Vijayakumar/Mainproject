@@ -18,7 +18,7 @@ if(isset($_POST["rating_data"]))
 {
 
 	$data = array(
-		':username'		=>	$_POST["username"],
+		':user_name'		=>	$_POST["user_name"],
 		':user_rating'		=>	$_POST["rating_data"],
 		':user_review'		=>	$_POST["user_review"],
 		':datetime'			=>	time()
@@ -27,10 +27,10 @@ if(isset($_POST["rating_data"]))
 	$query = "
 	INSERT INTO tbl_review 
 	(user_name, user_rating, user_review, datetime) 
-	VALUES (:username, :user_rating, :user_review, :datetime)
+	VALUES (:user_name, :user_rating, :user_review, :datetime)
 	";
 
-	$statement = $connect->prepare($query);
+	$statement = $conn->prepare($query);
 
 	$statement->execute($data);
 
@@ -60,7 +60,7 @@ if(isset($_POST["action"]))
 	foreach($result as $row)
 	{
 		$review_content[] = array(
-			'username'		=>	$row["username"],
+			'user_name'		=>	$row["user_name"],
 			'user_review'	=>	$row["user_review"],
 			'rating'		=>	$row["user_rating"],
 			'datetime'		=>	date('l jS, F Y h:i:s A', $row["datetime"])
