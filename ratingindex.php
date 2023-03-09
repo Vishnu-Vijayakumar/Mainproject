@@ -1,8 +1,12 @@
 <?php session_start();
 include ('connection.php');
+$bookid=$_GET['id'];
 $sql="select * from tbl_registration where username='".$_SESSION['user_username']."'";
 $rs= mysqli_query($conn,$sql);
 $r= $_SESSION['user_username'];
+// $id = $_POST['bookid'];
+
+
 // $user=$_SESSION['user'];
 // $name = $_POST['name'];
 
@@ -11,6 +15,15 @@ $r= $_SESSION['user_username'];
 
  if($r!="")
  {
+
+
+
+ 
+   
+        
+    
+
+
 
 ?>
 <!DOCTYPE HTML>
@@ -101,7 +114,7 @@ $r= $_SESSION['user_username'];
     		<div class="card-body">
     			
                     <?php 
-                    $select_query="select * from tbl_feedback where busername='$user'";
+                    $select_query="select * from tbl_feedback where book_id='$bookid'";
                     $result=mysqli_query($conn,$select_query);
                     while($row=mysqli_fetch_assoc($result)){
                         $name=$row['username'];

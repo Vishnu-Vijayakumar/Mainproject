@@ -38,6 +38,7 @@
     else{
         $islogged=false;
     }
+    
 ?>
 
 
@@ -383,7 +384,7 @@
                             <li class="nav-item">
                                 <!-- <a class="nav-link" data-toggle="tab" href="ratingindex.php" role="tab"
                                  aria-selected="false">Book Review</a> --> 
-                                    <a href="ratingindex.php"><button type="submit" class="site-btn">View and post your Reviews here!</button>
+                                    <a href="ratingindexpage.php?id=<?php echo $bookid ?>"><button type="submit"  class="site-btn" >View and post your Reviews here!</button>
                             </li>
                             <li class="nav-item">
                                 <!-- <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"

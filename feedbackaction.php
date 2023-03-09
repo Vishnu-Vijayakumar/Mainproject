@@ -5,6 +5,8 @@ session_start();
 
 
 $lid=$_SESSION['user_username'];
+$bookid=$_GET['id']; 
+$qry=mysqli_query($conn, "SELECT * FROM tbl_bookinfo WHERE book_id='$bookid'");
 // $user=$_SESSION['user'];
 // $name = $_POST['name'];
 
