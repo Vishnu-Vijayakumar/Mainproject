@@ -96,4 +96,12 @@ if(isset($_POST["action"]))
 
 }
 
+
+
 ?>
+echo "<script>alert('Registered Successfully !!!');
+                    window.location.href='ratingindexpage.php';</script>";
+                }
+                else{
+                    echo "<script>alert('Registration Failed !!!');</script>";
+                }

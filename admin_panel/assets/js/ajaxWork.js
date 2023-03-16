@@ -53,6 +53,20 @@ function showProductSizes(){
     });
 }
 
+
+function showSizespdf(){  
+    $.ajax({
+        url:"./adminView/viewpdf.php",
+        method:"post",
+        data:{record:1},
+        success:function(data){
+            $('.allContent-section').html(data);
+        }
+    });
+}
+
+
+
 function showCustomers(){
     $.ajax({
         url:"./adminView/viewCustomers.php",
@@ -114,6 +128,7 @@ function ChangePay(id){
        }
    });
 }
+
 
 
 //add product data

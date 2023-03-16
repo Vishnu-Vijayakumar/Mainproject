@@ -185,8 +185,9 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <!-- <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li> -->
+                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+
+                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
                         <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
                     </div>
@@ -549,7 +550,10 @@
                                             <div class="product__discount__item__pic set-bg"
                                                 data-setbg="<?php echo $row['book_img']; ?>">
                                                 <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                    <li><a href="wishlist.php"><i id="wishlist_id"  class="' prod_like fa '.$wishlist_class.' fa fa-heart" onclick="addToWishlist('.$book_id.','.$count.');"></i></a></li>
+                                                    <!-- <i id="wishlist_id" class="prod_like fa '.$wishlist_class.'" onclick="addToWishlist('.$prod_id.','.$count.');"></i>
+                                        <div id="product_img_div"> 
+                                                     -->
                                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
                                                     <li><a href="shop-details.php?id=<?php echo $row['book_id'];?>"> <i class="fa fa-shopping-cart"></i></a></li>
                                                 </ul>
@@ -693,6 +697,47 @@
         });
     }
 </script>
+
+
+
+<script>
+        function addToWishlist(book_id, count){
+
+            const elm= document.getElementsByClassName('prod_like');
+            var wcheck=0;
+            if(elm[count].classList.contains("fa-heart")){
+                wcheck=1;
+            }
+
+            $.ajax({
+                url:"wishlist_ajax.php",
+                method:"POST",
+                data:{book_id:book_id, wflag:wcheck},
+                success:function(data){
+                    // alert(data+" and "+wcheck);
+                    if(data==1 && wcheck==0){
+                        // alert("true and 0");
+                        elm[count].classList.add("prod_red");
+                        elm[count].classList.add("fa fa-heart");
+                        elm[count].classList.remove("fa-heart-o");
+                        alert("Added to wishlist");
+                    }
+                    else if(data==1 && wcheck==1){
+                        // alert("true and 1");
+                        elm[count].classList.add("fa-heart-o");
+                        elm[count].classList.remove("fa fa-heart");
+                        elm[count].classList.remove("prod_red");
+                        alert("Removed to wishlist");
+                    }
+                },
+                error: function(e){
+                    alert(e);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
 
 
 </body>

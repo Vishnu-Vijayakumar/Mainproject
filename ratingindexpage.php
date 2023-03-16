@@ -1,6 +1,6 @@
 <?php session_start();
 include ('connection.php');
-$bookid=$_GET['id'];
+$bookid=$_POST['book_id'];
 $sql="select * from tbl_registration where username='".$_SESSION['user_username']."'";
 $rs= mysqli_query($conn,$sql);
 $r= $_SESSION['user_username'];
@@ -391,7 +391,7 @@ $r= $_SESSION['user_username'];
                      <?php 
                         while($row = mysqli_fetch_array($rs)) {
                       ?>
-	        		<input type="text"class="form-control" name="fname" id="name" value="<?php echo $row['username'];?>"  placeholder="Enter Your Name" />
+	        		<!-- <input type="text"class="form-control" name="fname" id="name" value="<?php echo $row['username'];?>"  placeholder="Enter Your Name" /> -->
 	        	      </div>
                     <!-- <input type="text"class="form-control" name="fname" id="name" value="<?php echo $user;?>"  placeholder="Enter Your Name" />
 	        	      </div> -->
@@ -713,8 +713,7 @@ $(document).ready(function(){
     <script src="bookstore/js/owl.carousel.min.js"></script>
     <script src="bookstore/js/main.js"></script>
 
- 
-
+    
 </body>
 
 </html>
