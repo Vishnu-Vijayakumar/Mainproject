@@ -8,16 +8,51 @@
         $user_id= $_SESSION['user_loginid'];
         $delete_id= $_GET['delete_id'];
         $cart_id= $_GET['cart_id'];
-        $delete_item_res= mysqli_query($conn, "DELETE from tbl_cart WHERE cart_id=$cart_id AND login_id=$user_id");
-        if($delete_item_res && mysqli_affected_rows($conn)==1){
-            echo "<script>
-                    alert('Item deleted successfully.');
+
+        $prod_details_sql= mysqli_query($conn,"SELECT * FROM tbl_bookinfo WHERE book_id=".$delete_id);
+        if($prod_details_sql && mysqli_num_rows($prod_details_sql) > 0){
+            $prod_details= mysqli_fetch_array($prod_details_sql);
+            
+            $cart_prod_sql= mysqli_query($conn,"SELECT * FROM tbl_cart WHERE cart_id=".$cart_id);
+            if($cart_prod_sql && mysqli_num_rows($cart_prod_sql) > 0){
+                $cart_details= mysqli_fetch_array($cart_prod_sql);
+
+                $curr_stock_val= $prod_details[6]+$cart_details[3];
+
+                $update_prod_sql= "UPDATE tbl_bookinfo SET book_stock=$curr_stock_val WHERE book_id=".$delete_id;
+                $update_stock_res= mysqli_query($conn, $update_prod_sql);
+                if($update_stock_res){
+                    $delete_item_res= mysqli_query($conn, "DELETE from tbl_cart WHERE cart_id=$cart_id AND login_id=$user_id");
+                    if($delete_item_res && mysqli_affected_rows($conn)==1){
+                        echo "<script>
+                            alert('Item deleted successfully.');
+                            window.location.href='shoping-cart.php';
+                        </script>";
+                    }
+                    else{
+                        echo "<script>
+                                alert('Unable to delete the item 4 !! Please try later');
+                                window.location.href='shoping-cart.php';
+                            </script>";
+                    }
+                }
+                else{
+                    echo "<script>
+                        alert('Unable to delete the item 1 !! Please try later');
+                        window.location.href='shoping-cart.php';
+                    </script>";
+                }
+            }
+            else{
+                echo "<script>
+                    alert('Unable to delete the item 2 !! Please try later');
                     window.location.href='shoping-cart.php';
                 </script>";
+            }
         }
         else{
             echo "<script>
-                    alert('Unable to delete the item !! Please try later');
+                    alert('Unable to delete the item 3 !! Please try later');
                     window.location.href='shoping-cart.php';
                 </script>";
         }
@@ -374,7 +409,7 @@
                                                 echo '
                                                     <tr>
                                                         <td class="shoping__cart__item">
-                                                            <img id="shopping_cart_img" src="'.$book_details['book_img'].'" alt="">
+                                                            <img id="shopping_cart_img" src="./seller/uploaded_images/'.$book_details['book_img'].'" alt="">
                                                             <h5>'.$book_details['book_name'].'</h5>
                                                         </td>
                                                         <td class="shoping__cart__price">

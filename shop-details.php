@@ -15,6 +15,7 @@
             $pauthor=$presult[10];
             $planguage=$presult[8];
             $pcategory=$presult[12];
+            $pstock= $presult[6];
         }
             else{
                 $pdes= "Sample Description";
@@ -303,17 +304,17 @@
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="<?php echo $pimg;?>" alt="">
+                                src="./seller/uploaded_images/<?php echo $pimg;?>" alt="">
                         </div> 
                         <div class="product__details__pic__slider owl-carousel">
                             <img data-imgbigurl="img/product/details/product-details-2.jpg"
-                                src="<?php echo $pimg;?>" alt="">
+                                src="./seller/uploaded_images/<?php echo $pimg;?>" alt="">
                             <img data-imgbigurl="img/product/details/product-details-3.jpg"
-                                src="<?php echo $pimg;?>" alt="">
+                                src="./seller/uploaded_images/<?php echo $pimg;?>" alt="">
                             <img data-imgbigurl="img/product/details/product-details-5.jpg"
-                                src="<?php echo $pimg;?>" alt="">
+                                src="./seller/uploaded_images/<?php echo $pimg;?>" alt="">
                             <img data-imgbigurl="img/product/details/product-details-4.jpg"
-                                src="<?php echo $pimg;?>" alt="">
+                                src="./seller/uploaded_images/<?php echo $pimg;?>" alt="">
                         </div> 
                     </div>
                 </div>
@@ -348,11 +349,11 @@
                                 <div class="product__details__quantity">
                                     <div class="quantity">
                                         <div class="pro-qty">
-                                            <input type="text" value="1" name="item_quantity">
+                                            <input type="text" value="1" max="<?php echo $pstock; ?>" name="item_quantity">
                                         </div>
                                     </div>
                                 </div>
-                                
+                                <input type="text" value="<?php echo $pstock; ?>" name="item_pstock" hidden>
                                 <input type="text" value="<?php echo $_GET['id']; ?>" hidden name="item_prod_id">
                                 <input type="text" value="<?php echo isset($_SESSION['user_loginid']) ? $_SESSION['user_loginid']: "1"; ?>" hidden name="item_user_id">
                                 <input type="submit" name="item_cart_btn" class="primary-btn" value="ADD TO CARD">

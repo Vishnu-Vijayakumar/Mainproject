@@ -3549,6 +3549,8 @@ ol {
 
 .search_row a {
     display: flex;
+	flex-wrap: wrap;
+	overflow: hidden;
 }
 
 .db_img {
@@ -3564,4 +3566,45 @@ ol {
     max-width: 40px;
     max-height: 40px;
     border-radius: 0px;
+}
+
+
+#sg-allproducts{
+    display: flex;
+	background-color: lightgrey;
+	padding: 10px;
+}
+
+.sg-product-item{
+	width: 400px;
+	margin-left: 10px;
+}
+
+.sg-product-img{
+	width: 100px;
+}
+
+.sg-product-des{
+	text-align: justify;
+	text-justify: inter-word;
+	overflow: hidden;
+    width:60%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+	margin-top: 5px;
+}
+
+.shp-grd-pdes{
+	text-align: justify;
+	text-justify: inter-word;
+	overflow: hidden;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.shp-grd-pimage{
+	width: 100px;
 }

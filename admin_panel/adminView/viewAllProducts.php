@@ -1,4 +1,3 @@
-
 <div >
   <h2>Book Availabe</h2>
   <table class="table ">
@@ -32,7 +31,7 @@
     ?>
     <tr>
       <td><?=$count?></td>
-      <td><?php echo '<img id="book_img" src="'.$row['book_img'].'" alt="'.$row['book_img'].'">' ?></td>
+      <td><?php echo '<img id="book_img" src="../seller/uploaded_images/'.$row['book_img'].'" class="viewallprod_image" alt="'.$row['book_img'].'">' ?></td>
       <td><?=$row["book_name"]?></td>
       <td><?=$row["book_author"]?></td>      
       
@@ -116,4 +115,3 @@
 
   
 </div>
-   

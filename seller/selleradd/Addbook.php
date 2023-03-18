@@ -8,26 +8,25 @@
         $bauthor=$_POST['pauthor'];
         $bcategory = $_POST['pOffer'];
         $blanguage = $_POST['language'];
-        // $bimg=$_FILES["pimage"]["name"];
-        $bimg=$_FILES['pimage']['name'];
-        $finaltargetImage = $_FILES['pimage']['name'];
-        $folder='../seller/photos';
-    move_uploaded_file($finaltargetImage,$folder.$bimg);
-        // $targetImage = $targetDir . $bimg;
-        // $finaltargetImage = $finalpath . $bimg;
-       
-        // move_uploaded_file($_FILES["pimage"]["tmp_name"],$targetImage);
-       
-        //move_uploaded_file($_FILES["pimage"]["tmp_name"],"../seller/photos/".$img);
-        $q = "INSERT INTO tbl_bookinfo (book_category_id,book_name,book_img,book_price,book_language,book_author,seller_id,category_name) VALUES (1,'$bname','$finaltargetImage','$bprice','$blanguage','$bauthor',2,'$bcategory')";
-        $query = mysqli_query($conn,$q);
-        if($query){
-            echo "<script>alert('New Item Added Successfully...');</script>";
-            header('sellerindex.php');
-        }
-        else{
-          echo "<script>alert('Not added !!');</script>";
-        }
+
+		$file_name = $_FILES['pimage']['name'];
+		$temp_file_path = $_FILES['pimage']['tmp_name'];
+		
+		$new_file_path = '../uploaded_images/'.$file_name;
+		if(move_uploaded_file($temp_file_path, $new_file_path)){
+			$q = "INSERT INTO tbl_bookinfo (book_category_id,book_name,book_img,book_price,book_language,book_author,seller_id,category_name) VALUES (1,'$bname','$file_name','$bprice','$blanguage','$bauthor',2,'$bcategory')";
+			$query = mysqli_query($conn,$q);
+			if($query){
+				echo "<script>alert('New Item Added Successfully...');</script>";
+				header('sellerindex.php');
+			}
+			else{
+				echo "<script>alert('Not added !!');</script>";
+			}
+		}
+		else{
+			echo "<script>alert('Unable to upload image and save data !! Please try again...');</script>";
+		}
     }
 ?>
 <!DOCTYPE html>

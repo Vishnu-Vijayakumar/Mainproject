@@ -21,6 +21,7 @@
         {
             $prod_id= $_POST['prod_id'];
             $login_id= $_SESSION['login_id'];
+    
             $del_cart_item_res= mysqli_query($conn,"DELETE FROM tbl_cart WHERE product_id=$prod_id AND login_id=$login_id");
             if($del_cart_item_res){
                 echo "<script>

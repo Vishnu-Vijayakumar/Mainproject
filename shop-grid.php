@@ -6,6 +6,19 @@
     else{
         $islogged=false;
     }
+
+    $server = "localhost";
+    $user = "root";
+    $password = "";
+    $db = "bookstore";
+
+
+    $num_per_page= 03;
+
+    $conn = mysqli_connect($server,$user,$password,$db);
+
+    $sql="SELECT * from tbl_bookinfo";
+    $result=$conn-> query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -470,137 +483,144 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-9 col-md-7">
                     <div class="product__discount">
-                        <div class="section-title product__discount__title">
-                            <h2>Sale Off</h2>
-                        </div>
+                        <div class="section-title product__discount__title"><h2>Sale Off</h2></div>
                         <div class="row">
                             <div class="product__discount__slider owl-carousel">
-                                
-                                
                                 <?php
-
-                                    $server = "localhost";
-                                    $user = "root";
-                                    $password = "";
-                                    $db = "bookstore";
-
-                                    $conn = mysqli_connect($server,$user,$password,$db);
-
-                                    $sql="SELECT * from tbl_bookinfo";
-                                    $result=$conn-> query($sql);
                                     if ($result-> num_rows > 0){
                                        while ($row=$result-> fetch_assoc()) {
 
-                                    ?>
+                                ?>
                                 
-                                
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                        
-                                            <div class="product__discount__item__pic set-bg"
-                                                data-setbg="<?php echo $row['book_img']; ?>">
-                                                <div class="product__discount__percent">-21%</div>
-                                                <ul class="product__item__pic__hover">
-                                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="shop-details.php?id=<?php echo $row['book_id'];?>"> <i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span><?php echo $row["book_name"]; ?></span>
-                                                <h5><a href="#"><?php echo $row["book_des"]; ?></a></h5>
-                                                <div class="<?php echo $row['book_price']; ?>"> <span> Rs. <?php echo $row['book_price']; ?></span></div>
-                                            </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg" data-setbg="<?php echo './seller/uploaded_images/'.$row['book_img']; ?>">
+                                            <div class="product__discount__percent">-21%</div>
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="shop-details.php?id=<?php echo $row['book_id'];?>"> <i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span><?php echo $row["book_name"]; ?></span>
+                                            <h5><a href="#"><?php echo $row["book_des"]; ?></a></h5>
+                                            <div class="<?php echo $row['book_price']; ?>"> <span> Rs. <?php echo $row['book_price']; ?></span></div>
                                         </div>
                                     </div>
-                                    
-                                     <?php
-                                         }
-                                       }
-                                     ?>
+                                </div>
+                                
+                                <?php
+                                        }
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
                     
+                    <div class="filter__item">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-5">
+                                <div class="filter__sort">
+                                    <span>Sort By</span>
+                                    <select>
+                                        <option value="0">Default</option>
+                                        <option value="0">Default</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <div class="filter__found">
+                                    <h6><span>16</span> Products found</h6>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-3">
+                                <div class="filter__option">
+                                    <span class="icon_grid-2x2"></span>
+                                    <span class="icon_ul"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <?php
 
+                        $results_per_page = 6;
+                        $sql='SELECT * FROM tbl_bookinfo';
+                        $prod_result = mysqli_query($conn, $sql);
+                        $number_of_results = mysqli_num_rows($prod_result);
+                        $number_of_pages = ceil($number_of_results/$results_per_page);
 
+                        if (!isset($_GET['page'])) {
+                            $page = 1;
+                        } else {
+                            $page = $_GET['page'];
+                        }
 
-                    <?php
+                        $this_page_first_result = ($page-1)*$results_per_page;
 
-                $server = "localhost";
-                $user = "root"; 
-                $password = "";
-                $db = "bookstore";
-
-                $conn = mysqli_connect($server,$user,$password,$db);
-
-                    $sql="SELECT * from tbl_bookinfo";
-                    $result=$conn-> query($sql);
-                    if ($result-> num_rows > 0){
-                    while ($row=$result-> fetch_assoc()) {
-
-                        ?>
-                                        <div class="row">  
+                        $sql="SELECT * FROM tbl_bookinfo LIMIT " . $this_page_first_result . ',' .  $results_per_page;
+                        $result=$conn-> query($sql);
+                            if ($result-> num_rows > 0){
+                                while ($row=$result-> fetch_assoc()) {
+                                    echo '
                                         <div class="col-lg-4 col-md-6 col-sm-6">
-                                        <div class="product__discount__item">
-                                        <!-- <a href="shop-details.php?shop-grid=<?echo $row['book_id'];?>"> -->
-                                            <div class="coloum">
-                                            <div class="product__discount__item__pic set-bg"
-                                                data-setbg="<?php echo $row['book_img']; ?>">
-                                                <ul class="product__item__pic__hover">
-                                                    <li><a href="wishlist.php"><i id="wishlist_id"  class="' prod_like fa '.$wishlist_class.' fa fa-heart" onclick="addToWishlist('.$book_id.','.$count.');"></i></a></li>
-                                                    <!-- <i id="wishlist_id" class="prod_like fa '.$wishlist_class.'" onclick="addToWishlist('.$prod_id.','.$count.');"></i>
-                                        <div id="product_img_div"> 
-                                                     -->
-                                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                    <li><a href="shop-details.php?id=<?php echo $row['book_id'];?>"> <i class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-                                                <span><?php  echo  $row["book_name"]; ?></span>
-                                                <!-- <h5><a href="#"><?php echo $row["book_des"]; ?></a></h5> -->
-                                                <div class="<?php echo $row['book_price']; ?>"> <span> Rs. <?php echo $row['book_price']; ?></span></div>
+                                            <div class="product__item">
+                                                <div class="product__item__pic set-bg" data-setbg="./seller/uploaded_images/'.$row['book_img'].'">
+                                                    <ul class="product__item__pic__hover">
+                                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="product__item__text">
+                                                    <h6><a href="shop-details.php?id='.$row['book_id'].'" target="_blank">'.$row['book_name'].'</a></h6>
+                                                    <h5>Rs. '.$row['book_price'].'</h5>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    </div
-                                     <?php
-                                         }
-                                       }
-                                       
-                                     ?>
+                                    ';
+                                }
+                            }
+                        ?>
+                    </div>
+                    <div class="product__pagination" style="margin-left: 40%">
+                        <?php
+                            if(isset($_GET['page']))
+                                $curr_page= $_GET['page'];
+                            else
+                                $curr_page= 1;
+
+                            if($curr_page > 1){
+                                echo '<a href="shop-grid.php?page='.($curr_page-1).'"><i class="fa fa-long-arrow-left"></i></a>';
+                                echo '<a id="pagelink'.($curr_page-1).'" href="shop-grid.php?page='.($curr_page-1).'">'.($curr_page-1).'</a>';
+                            }
+
+                            echo '<a id="pagelink'.$curr_page.'">'.$curr_page.'</a>';
+                            $docid= "pagelink".$curr_page;
+                            echo "<script>
+                                document.getElementById('$docid').style.backgroundColor= '#94d924';
+                                document.getElementById('$docid').style.color= 'white';
+                            </script>";
+
+                            $number_of_results= isset($number_of_results) ? $number_of_results : 1;
+                            if($curr_page < $number_of_pages){
+                                echo '
+                                    <a id="pagelink'.($curr_page+1).'" href="shop-grid.php?page='.($curr_page+1).'">'.($curr_page+1).'</a>
+                                    <a href="shop-grid.php?page='.($curr_page+1).'"><i class="fa fa-long-arrow-right"></i></a>
+                                ';
+                            }
+
+                        ?>
+                        <br><br><br><br><br>
+                    </div>
+                </div>
+                    
+
                                      
-                            
-                       
-                    
-                            
-                       
-                    
-                               
-
-
-
-
-
-
-
-
-
-
-
-             
-
-
-
-
-
-
-
-
-
-
     <!-- Product Section End -->
 
     <!-- Footer Section Begin -->
