@@ -41,6 +41,7 @@
                         alert('Unable to delete the item 1 !! Please try later');
                         window.location.href='shoping-cart.php';
                     </script>";
+                    
                 }
             }
             else{
