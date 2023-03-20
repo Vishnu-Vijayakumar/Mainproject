@@ -8,13 +8,14 @@
         $bauthor=$_POST['pauthor'];
         $bcategory = $_POST['pOffer'];
         $blanguage = $_POST['language'];
+        $bstock = $_POST['stock'];
 
 		$file_name = $_FILES['pimage']['name'];
 		$temp_file_path = $_FILES['pimage']['tmp_name'];
 		
 		$new_file_path = '../uploaded_images/'.$file_name;
 		if(move_uploaded_file($temp_file_path, $new_file_path)){
-			$q = "INSERT INTO tbl_bookinfo (book_category_id,book_name,book_img,book_price,book_language,book_author,seller_id,category_name) VALUES (1,'$bname','$file_name','$bprice','$blanguage','$bauthor',2,'$bcategory')";
+			$q = "INSERT INTO tbl_bookinfo (book_category_id,book_name,book_img,book_stock,book_price,book_language,book_author,seller_id,category_name) VALUES (1,'$bname','$file_name','$bstock','$bprice','$blanguage','$bauthor',2,'$bcategory')";
 			$query = mysqli_query($conn,$q);
 			if($query){
 				echo "<script>alert('New Item Added Successfully...');</script>";
@@ -84,6 +85,9 @@
  
  <label> Book Language: </label>
  <input type="text" name="language" id="pFeature" autofocus="false" autocomplete="off" class="form-control"  placeholder="Enter Book Language" required> <br>
+
+ <label> Book Stock: </label>
+ <input type="text" name="stock" id="pstock" autofocus="false" autocomplete="off" class="form-control"  placeholder="Enter Book Stock" required> <br>
 
  <label> Upload Image: </label>
  <input type="file" name="pimage" id="pImage" autofocus="false" autocomplete="off" class="form-control" required> <br>

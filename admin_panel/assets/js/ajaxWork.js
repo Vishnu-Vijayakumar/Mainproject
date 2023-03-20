@@ -56,7 +56,7 @@ function showProductSizes(){
 
 function showSizespdf(){  
     $.ajax({
-        url:"./adminView/viewpdf.php",
+        url:"../admin_panel/adminpdf/pdfview.php",
         method:"post",
         data:{record:1},
         success:function(data){

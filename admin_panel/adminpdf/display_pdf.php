@@ -14,7 +14,7 @@
     </style>
   </head>
   <body>
-    <div class="div1">
+    <!-- <div class="div1"> -->
       <?php
       include 'connection.php';
       $id=$_REQUEST['id'];
@@ -22,13 +22,17 @@
       $query=mysqli_query($con,$sql);
       while ($info=mysqli_fetch_array($query)) {
         ?>
-      <embed type="application/pdf" src="pdf/<?php echo $info['pdf'] ; ?>" width="1300" height="550">
+      <embed type="application/pdf" src="pdf/<?php echo $info['pdf'] ; ?>" width="100%" height="700">
     <?php
       }
 
       ?>
 
-    </div>
+    <!-- </div> -->
+
+
+
+    
 
   </body>
 </html>

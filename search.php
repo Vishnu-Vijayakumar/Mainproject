@@ -23,6 +23,8 @@
   $book_author=$q['book_author'];
   $seller_id=$q['seller_id'];
   $category_name=$q['category_name'];
+//   $new_file_path = '../uploaded_images/'.$file_name;
+
 
               echo '
                 <div class="serch_result_row">

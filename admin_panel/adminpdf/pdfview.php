@@ -4,10 +4,10 @@
     <nav>
   <div class="profile-details">
         <!-- <img src="images/profile.jpg" alt=""> -->
-        <!-- <span class="admin_name">athira@gmail.com</span> -->
+        
         <i class='bx bx-chevron-down' ></i>
       </div>
-    <h4 align="center">PDF<h4>
+    <h4>UPDATED PDF<h4>
 <table style="width:75%"cellpadding="10" cellspacing="4" border="3" align="center">          
               <tr>
                   <th>No</th>
@@ -18,7 +18,9 @@
                   <th>Ending Time</th> -->
                   <th>Pdf</th>
                   <th>Download</th>
-              </tr>             
+              </tr>  
+              
+              
               <?php
               include 'connection.php';
               $query=mysqli_query($con,"select * from pdf_file");             
@@ -35,13 +37,18 @@ while($row=mysqli_fetch_array($query))
                   <td><?php echo htmlentities($row['stime']);?></td>
                   <td><?php echo htmlentities($row['send']);?></td> -->
                   <td><?php echo htmlentities($row['pdf']);?></td>
-                  <td><a href="display_pdf.php?id=<?php echo $row['id']?>">View</a></td>
-              
+                  <td><a href="..\admin_panel\adminpdf\display_pdf.php?id=<?php echo $row['id']?>">View</a></td>
               </tr>
-              <?php $cnt=$cnt+1; } ?>
-              
+              <?php $cnt=$cnt+1; } ?>    
       </table>
+      
+        <a href="..\admin_panel\adminpdf\insert.php"><button type="submit"  class="btn btn-primary" >You can upload here!</button>
+      
 
+      
+
+
+      
     </li>
           </ul>
         </div>
