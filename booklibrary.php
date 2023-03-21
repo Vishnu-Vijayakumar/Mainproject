@@ -35,43 +35,43 @@
     <link rel="stylesheet" href="bookstore/css/style.css" type="text/css">
 </head>
 
-<body>
+<!-- <body> -->
     <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
+    <!-- <div id="preloder"> -->
+        <!-- <div class="loader"></div> -->
     </div>
 
     <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
+    <!-- <div class="humberger__menu__overlay"></div> -->
+    <!-- <div class="humberger__menu__wrapper"> -->
+        <!-- <div class="humberger__menu__logo"> -->
+            <!-- <a href="#"><img src="img/logo.png" alt=""></a> -->
+        <!-- </div> -->
+        <!-- <div class="humberger__menu__cart"> -->
+            <!-- <ul> -->
+                <!-- <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li> -->
+                <!-- <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li> -->
+            <!-- </ul> -->
+            <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
+        <!-- </div> -->
+        <!-- <div class="humberger__menu__widget"> -->
+            <!-- <div class="header__top__right__language"> -->
+                <!-- <img src="img/language.png" alt=""> -->
+                <!-- <div>English</div> -->
+                <!-- <span class="arrow_carrot-down"></span> -->
+                <!-- <ul> -->
                     <!-- <li><a href="#">Spanis</a></li> -->
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
+                    <!-- <li><a href="#">English</a></li> -->
+                <!-- </ul> -->
+            <!-- </div> -->
          
-            <div class="header__top__right__auth">
+            <!-- <div class="header__top__right__auth"> -->
 
             
                 <!-- <a href="#"><i class="fa fa-user"></i> Login</a> -->
-            </div>
+            <!-- </div>
         </div>
-        <nav class="humberger__menu__nav mobile-menu">
+         <nav class="humberger__menu__nav mobile-menu">
             <ul>
                 <li class="active"><a href="index.php">Home</a></li>
                 <li><a href="./shop-grid.html">Shop</a></li>
@@ -81,11 +81,11 @@
                         <li><a href="./shoping-cart.html">Shoping Cart</a></li>
                         <li><a href="./checkout.html">Check Out</a></li>
                         <li><a href="./seller/sellerlogin/Sellerlogin.php">Became a Seller</a></li>
-                    </ul>
-                </li>
+                    </ul> -->
+                <!-- </li>
                 <li><a href="./blog.html">Seller</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
+                <li><a href="./contact.html">Contact</a></li> --> 
+            <!-- </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
         <div class="header__top__right__social">
@@ -94,16 +94,17 @@
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="#"><i class="fa fa-pinterest-p"></i></a>
         </div>
-        <div class="humberger__menu__contact">
-            <ul>
+        <div class="humberger__menu__contact"> -->
+            <!-- <ul>
                 <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
                 <li>Free Shipping for all Order of $99</li>
             </ul>
         </div>
-    </div>
+    </div> -->
     <!-- Humberger End -->
 
     <!-- Header Section Begin -->
+    
     <header class="header">
         <div class="header__top">
             <div class="container">
@@ -164,7 +165,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li><a href="index.php">Home</a></li>
-                            <li><a href="./shop-grid.html">Shop</a></li>
+                            <li><a href="shop-grid.php">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="./shop-details.html">Shop Details</a></li>
@@ -196,7 +197,7 @@
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
-    <section class="hero hero-normal">
+    <!-- <section class="hero hero-normal">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -246,15 +247,15 @@
             </div>
         </div>
     </section>
-    <!-- Hero Section End -->
+    <Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="banner5.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Blog</h2>
+                        <h2>Book Library</h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <span>Blog</span>
@@ -264,10 +265,13 @@
             </div>
         </div>
     </section>
+
+
+    
     <!-- Breadcrumb Section End -->
 
     <!-- Blog Section Begin -->
-    <section class="blog spad">
+    <!-- <section class="blog spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-5">
@@ -277,8 +281,8 @@
                                 <input type="text" placeholder="Search...">
                                 <button type="submit"><span class="icon_search"></span></button>
                             </form>
-                        </div>
-                        <div class="blog__sidebar__item">
+                        </div> -->
+                        <!-- <div class="blog__sidebar__item">
                             <h4>Categories</h4>
                             <ul>
                                 <li><a href="#">All</a></li>
@@ -286,8 +290,8 @@
                                 <li><a href="#">Food (5)</a></li>
                                 <li><a href="#">Life Style (9)</a></li>
                                 <li><a href="#">Travel (10)</a></li>
-                            </ul>
-                        </div>
+                            </ul> -->
+                        <!-- </div>
                         <div class="blog__sidebar__item">
                             <h4>Recent News</h4>
                             <div class="blog__sidebar__recent">
@@ -449,7 +453,68 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+    <html>
+  <body>
+  <section class="">
+    <nav>
+  <div class="profile-details">
+        <!-- <img src="images/profile.jpg" alt=""> -->
+        
+        <i class='bx bx-chevron-down' ></i>
+      </div>
+    <!-- <h4>UPDATED PDF<h4> -->
+<table style="width:70%"cellpadding="10" cellspacing="4" border="3" align="center">          
+              <tr>
+                  <th>No</th>
+                  <!-- <th>Title</th>  -->
+                  <th>Book Author</th>
+                  <th>Book Name</th>
+                  <th>Title</th>
+                  <th>Download</th>
+              </tr>  
+              
+              
+              <?php
+              include 'connection.php';
+              $query=mysqli_query($conn,"select * from pdf_file");             
+$cnt=1;
+while($row=mysqli_fetch_array($query))
+{
+ 
+?>                                  
+              <tr>
+                  <td><?php echo htmlentities($cnt);?></td>
+                  <!-- < <td><?php echo htmlentities($row['Title']);?></td> -->
+                  <td><?php echo htmlentities($row['book_author']);?></td>
+                  <td><?php echo htmlentities($row['book_name']);?></td>
+                  <td><?php echo htmlentities($row['pdf']);?></td>
+                  <td><a href=".\admin_panel\adminpdf\display_pdf.php?id=<?php echo $row['id']?>">View/Download</a></td>
+              </tr>
+              <?php $cnt=$cnt+1; } ?>    
+      </table>
+      
+        <!-- <a href="..\admin_panel\adminpdf\insert.php"><button type="submit"  class="btn btn-primary" >You can upload here!</button> -->
+      
+
+      
+
+
+      
+    </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+</body>
+</html>
+
+
+
     <!-- Blog Section End -->
 
     <!-- Footer Section Begin -->

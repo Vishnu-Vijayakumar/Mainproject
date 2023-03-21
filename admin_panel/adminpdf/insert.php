@@ -3,12 +3,14 @@
         if (isset($_POST['submit'])) {
          
           $pdf=$_FILES['pdf']['name'];
+          $bookname=$_POST['pname'];
+          $author=$_POST['pauthor'];
           $pdf_type=$_FILES['pdf']['type'];
           $pdf_size=$_FILES['pdf']['size'];
           $pdf_tem_loc=$_FILES['pdf']['tmp_name'];
           $pdf_store="pdf/".$pdf;
           move_uploaded_file($pdf_tem_loc,$pdf_store);
-          $sql="INSERT INTO pdf_file(`pdf`) values('$pdf')";
+          $sql="INSERT INTO pdf_file(`book_name`,`book_author`,`pdf`) values('$bookname','$author','$pdf')";
           $query=mysqli_query($con,$sql);
         }
 
@@ -37,9 +39,17 @@
 
 <body>
     <form class="" action="insert.php" method="post" enctype="multipart/form-data">
+    <div class="container" style="margin-left:60px; margin-bottom:60%;  margin-right:60%; margin-top:60%;padding-left:-35px;padding-right:-35px; box-shadow: 2px 2px 10px #000000; border-radius: 5px; top: 2px;padding-top:2%;background-color:white">
         <div class="wrapper">
+          
             <div class="title">
-                Upload PDF
+            <label> Book Name: </label>
+ <input type="text" name="pname" id="pName" autofocus="false" autocomplete="off" class="form-control"  placeholder="Enter Book Name" required> <br>
+
+ <label> Book Author: </label>
+ <input type="text" name="pauthor" id="pOffer" autofocus="false" autocomplete="off" class="form-control"  placeholder="Enter Book Author" required> <br>
+
+                <!-- Upload PDF -->
             </div>
             <div class="form">
                 <div class="inputfield">
@@ -47,7 +57,7 @@
                     <input id="pdf" type="file" name="pdf" value="" required><br><br>
                 </div>
                 <input id="upload" type="submit" name="submit" value="Upload">
-              <script>alert('Uploaded Successfully !!!');</script>
+              <!-- <script>alert('Uploaded Successfully !!!');</script> -->
                    
                     
             </div>
