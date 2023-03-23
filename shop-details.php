@@ -359,7 +359,9 @@
                                 <input type="submit" name="item_cart_btn" class="primary-btn" value="ADD TO CARD">
                             </form>
                         
-                        <a href="shoping-cart.php" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <!-- <a href="wishlist.php?id=<?php echo $_GET['book_id']?>" class="heart-icon"><span class="icon_heart_alt"></span></a> -->
+                        <a href="wishlist.php?id=<?php echo $_GET['id'] ?>" class="heart-icon"><i class="fa fa-heart" aria-hidden="true"></i> Wishlist</a>
+
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
