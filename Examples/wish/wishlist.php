@@ -8,20 +8,19 @@ header('location:index.php');
  $loginid = $_SESSION['user_emailid']; 
  $bookid = $_GET['id'];
 
- $sql_Check = "SELECT * FROM tbl_wishlist where login_id = '$loginid' AND book_id = $bookid ";
- 
+ $sql_Check = "SELECT * FROM tbl_wishlist where login_id = '$loginid' AND book_id = '$bookid' ";
 
  $result_check = mysqli_query($conn, $sql_Check);
 
  if (mysqli_num_rows($result_check) == 1) { 
     echo 'product already exist in wishlist';
-    header('location:wishlistdemo.php');
+    header('location:show-wishlist.php');
     
  }else{
 
     $insertWishlist = "INSERT INTO tbl_wishlist (login_id, book_id) VALUES ('$loginid', '$bookid')";   
 	if(mysqli_query($conn, $insertWishlist)){
-        header('location:wishlistdemo.php');
+        header('location:show-wishlist.php');
 
     }
 

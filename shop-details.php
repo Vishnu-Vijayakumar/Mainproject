@@ -360,7 +360,16 @@
                             </form>
                         
                         <!-- <a href="wishlist.php?id=<?php echo $_GET['book_id']?>" class="heart-icon"><span class="icon_heart_alt"></span></a> -->
-                        <a href="wishlist.php?id=<?php echo $_GET['id'] ?>" class="heart-icon"><i class="fa fa-heart" aria-hidden="true"></i> Wishlist</a>
+                        <a href="wishlist.php?id=<?php echo $_GET['id'] ?>" class="heart-icon"><i class="fa fa-heart" aria-hidden="true"button onclick="addToWishlist()"></i> Wishlist</a>
+                        <script>
+                        function addToWishlist() {
+                                alert("Product added to wishlist");
+                                                }
+                                    </script>
+                        
+
+
+
 
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>

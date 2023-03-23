@@ -60,7 +60,7 @@
         </div>
         <div class="humberger__menu__cart">
             <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                <li><a href="wishlistdemo.php"><i class="fa fa-heart"></i> <span></span></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
             <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
@@ -181,13 +181,14 @@
                     <nav class="header__menu">
                         <ul>
                             <li><a href="index.php">Home</a></li>
-                            <li class="active"><a href="./shop-grid.html">Shop</a></li>
+                            <li class="active"><a href="shop-grid.php">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="booklibrary.php">Book Library</a></li>
                                     <li><a href="./shoping-cart.html">Shoping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="seller/sellerlogin/Sellerlogin.php">Start Selling</a></li>
+                                    <li><a href="wishlistdemo.php">My Wishlist</a></li>
                                 </ul>
                             </li>
                             <li><a href="./blog.html">Blog</a></li>
@@ -198,7 +199,7 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                             <li><a href="wishlistdemo.php"><i class="fa fa-heart"></i> </a></li>
 
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
@@ -270,9 +271,9 @@
                                 <button type="submit" class="site-btn">SEARCH</button> -->
 
                                 <div id="search_container">
+                                    
             
                                     <input type="text" name="search_bar_input"   onkeyup="searchFunc();"  id="search_bar_input" placeholder="What do you need?">
-                                    
                                     <span id="search_bar_searchbtn"><i class="fa fa-search"></i></span>
                                     <div class="display-box hide" id="db_result_box" >
         
