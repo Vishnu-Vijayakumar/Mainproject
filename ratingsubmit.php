@@ -4,7 +4,7 @@ include ('connection.php');
 if(isset($_POST["rating_data"]))
 {
 
-	$fname=$_POST['bid'];
+	$fname=$_POST['book_id'];
 	$lname=$_POST['user_name'];
 	$address=$_POST['user_rating'];
 	$phonenumber=$_POST['user_review'];

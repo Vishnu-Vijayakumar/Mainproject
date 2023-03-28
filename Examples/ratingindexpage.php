@@ -1,15 +1,6 @@
-<?php
-    session_start();
-    if(isset($_SESSION['user_emailid'])){
-        $islogged=true;
-    }
-    else{
-        $islogged=false;
-    }
-
-  
+<?php session_start();
 include ('connection.php');
-$bookid=$_GET['id'];
+$bookid=$_GET['book_id'];
 $sql="select * from tbl_registration where username='".$_SESSION['user_username']."'";
 $rs= mysqli_query($conn,$sql);
 $r= $_SESSION['user_username'];
@@ -79,34 +70,9 @@ $r= $_SESSION['user_username'];
                     <li><a href="#">Spanis</a></li>
                     <li><a href="#">English</a></li>
                 </ul>
-
-                <?php
-                                if ($islogged == false) {
-                                    echo '<a href="login-user.php"><i class="fa fa-user"></i>Login</a>';
-                                }
-                                else{
-                                    echo '
-                                        <div>'.$_SESSION["user_username"].'</div>
-                                        <div><a href="logout-user.php">Logout</a></div>
-                                    ';
-                                }
-                            ?>
-
             </div>
             <div class="header__top__right__auth">
-                
-            <?php
-                                if ($islogged == false) {
-                                    echo '<a href="login-user.php"><i class="fa fa-user"></i>Login</a>';
-                                }
-                                else{
-                                    echo '
-                                        <div>'.$_SESSION["user_username"].'</div>
-                                        <div><a href="logout-user.php">Logout</a></div>
-                                    ';
-                                }
-                            ?>
-                <!-- <a href="#"><i class="fa fa-user"></i> Login</a> -->
+                <a href="#"><i class="fa fa-user"></i> Login</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -172,21 +138,7 @@ $r= $_SESSION['user_username'];
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-
-                            <?php
-                                if ($islogged == false) {
-                                    echo '<a href="login-user.php"><i class="fa fa-user"></i>Login</a>';
-                                }
-                                else{
-                                    echo '
-                                        <div>'.$_SESSION["user_username"].'</div>
-                                        <div><a href="logout-user.php">Logout</a></div>
-                                    ';
-                                }
-                            ?>
-
-                            
-                                <!-- <a href="#"><i class="fa fa-user"></i> Login</a> -->
+                                <a href="#"><i class="fa fa-user"></i> Login</a>
                             </div>
                         </div>
                     </div>
@@ -264,9 +216,13 @@ $r= $_SESSION['user_username'];
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
-                        
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
                             </div>
-                           
+                            <div class="hero__search__phone__text">
+                                <h5>+65 11.188.888</h5>
+                                <span>support 24/7 time</span>
                             </div>
                         </div>
                     </div>
@@ -309,7 +265,6 @@ $r= $_SESSION['user_username'];
     		<div class="card-header">Users</div>
     		<div class="card-body">
             <form action="feedbackaction.php" method="post">
-                <!-- <input type="hidden" value="<?php echo $bookid;?>" name="book_id" id="bookid"> -->
     			<div class="row">
                 <h3><input type="radio" name="star" value="5">
 							<a href="#">
@@ -363,11 +318,7 @@ $r= $_SESSION['user_username'];
     				</div>
     				<div class="col-sm-4 text-center">
     					<h3 class="mt-4 mb-3">Write Review Here</h3>
-                        <!-- <a href="ratingindexpage.php?book_id=<?php echo $bookid ?>"><button type="submit"  class="site-btn" >View and post your Reviews here!</button> -->
-
-    					<!-- <a href="feedbackaction.php?id=<?php echo $bookid ?>"><button type="button" name="add_review" id="add_review" class="btn btn-primary">Review</button> -->
-                        <button type="submit" name="add_review" id="add_review"  class="site-btn" >Review</button>
-
+    					<button type="button" name="add_review" id="add_review" class="btn btn-primary">Review</button>
     				</div>
     			</div>
     		</div>

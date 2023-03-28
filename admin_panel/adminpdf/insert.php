@@ -56,7 +56,14 @@
                     <label for="">Choose Your File</label><br>
                     <input id="pdf" type="file" name="pdf" value="" required><br><br>
                 </div>
-                <input id="upload" type="submit" name="submit" value="Upload">
+                <input id="upload" type="submit" name="submit" value="Upload" button onclick="addpdf()">
+                <script>
+                        function addpdf() {
+                                alert("Pdf uploaded Successfully!!");
+          }
+                                    </script>
+
+                                    
               <!-- <script>alert('Uploaded Successfully !!!');</script> -->
                    
                     

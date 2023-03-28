@@ -225,6 +225,7 @@
                             <span>All departments</span>
                         </div>
                         <ul>
+            
                             <li><a href="#">Fiction</a></li>
                             <li><a href="#">Self Devolepment</a></li>
                             <li><a href="#">Non-Fiction</a></li>
@@ -490,7 +491,7 @@
 
                 <div class="col-lg-9 col-md-7">
                     <div class="product__discount">
-                        <div class="section-title product__discount__title"><h2>Sale Off</h2></div>
+                        <div class="section-title product__discount__title"><h2>Top Books</h2></div>
                         <div class="row">
                             <div class="product__discount__slider owl-carousel">
                                 <?php

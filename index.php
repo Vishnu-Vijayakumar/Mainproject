@@ -44,6 +44,29 @@
     <link rel="stylesheet" href="bookstore/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="bookstore/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="bookstore/css/style.css" type="text/css">
+    <script type="text/javascript">
+    (function(d, m){
+        var kommunicateSettings = 
+            {"appId":"2bbb3e7625746e5404186506c60a3717b","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+</script>
+<div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <div id="google_element">
+<script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+                            <script >
+                                function loadGoogleTranslate(){
+                                   new google.translate.TranslateElement("google_element");
+                                }
+                            </script>
+  </div>
+
+
 </head>
 
 <body>
