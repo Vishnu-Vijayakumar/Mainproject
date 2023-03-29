@@ -25,6 +25,11 @@
                 $pauthor="Authors Name";
                 $planguage="Product Language";
                 $pcategory="Product Category";
+
+
+
+               
+
         }
     } 
     else{
@@ -319,7 +324,20 @@
                     </div>
                 </div>
                 
-               
+                <?php
+$category = $pcategory; // example category
+$url = 'http://localhost:5000/recommend_books';
+$data = array('category' => $category);
+
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+echo $response;
+curl_close($ch);
+?>
+
                 
                 
                 <div class="col-lg-6 col-md-6">
