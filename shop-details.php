@@ -374,7 +374,7 @@ curl_close($ch);
                                 <input type="text" value="<?php echo $pstock; ?>" name="item_pstock" hidden>
                                 <input type="text" value="<?php echo $_GET['id']; ?>" hidden name="item_prod_id">
                                 <input type="text" value="<?php echo isset($_SESSION['user_loginid']) ? $_SESSION['user_loginid']: "1"; ?>" hidden name="item_user_id">
-                                <input type="submit" name="item_cart_btn" class="primary-btn" value="ADD TO CARD">
+                                <input type="submit" name="item_cart_btn" class="primary-btn" value="ADD TO CART">
                             </form>
                         
                         <!-- <a href="wishlist.php?id=<?php echo $_GET['book_id']?>" class="heart-icon"><span class="icon_heart_alt"></span></a> -->
