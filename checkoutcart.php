@@ -45,7 +45,10 @@
 
     $user_login_res= mysqli_query($conn,"SELECT login_id FROM tbl_login WHERE email='$email_id'");
     $login_id = ($user_login_res && mysqli_num_rows($user_login_res) == 1) ? mysqli_fetch_array($user_login_res)['login_id'] : null;
-    $cart_items_res= mysqli_query($conn,"SELECT * from tbl_cart WHERE login_id=$login_id");
+    $cart_items_res= mysqli_query($conn,"SELECT * from tbl_cart WHERE login_id=$login_id  AND cart_buy_status=0");
+    if(mysqli_num_rows($cart_items_res) <= 0){
+        echo "<script>alert('No Items added to cart !! Please add to cart and proceed to pay');window.location.href='index.php  '</script>";
+    }
 ?>
 
 <!-- <div class='order-message-container'>
@@ -354,43 +357,43 @@
             </div>
             <div class="checkout__form">
                 <h4>Billing Details</h4>
-                <form action="checkoutaction.php" method="POST">
+                <form id="order_form" method="POST">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Name<span>*</span></p>
-                                        <input type="text" name="name" value="<?php echo $udetails_row!=null ? ($udetails_row['firstname']." ".$udetails_row['lastname']) : "Not Available"; ?>" required>
+                                        <input type="text" id="name" name="name" value="<?php echo $udetails_row!=null ? ($udetails_row['firstname']." ".$udetails_row['lastname']) : "Not Available"; ?>" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Phone<span>*</span></p>
-                                        <input type="text" name="phone" value="<?php echo $udetails_row!=null ? $udetails_row['phone'] : "Not Available" ?>" required>
+                                        <input type="text" id="phone" name="phone" value="<?php echo $udetails_row!=null ? $udetails_row['phone'] : "Not Available" ?>" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
                                 <p>Country<span>*</span></p>
-                                <input type="text" name="country" value="" required>
+                                <input type="text" name="country" id="country" required>
                             </div>
                             <div class="checkout__input">
                                 <p>Address<span>*</span></p>
-                                <input type="text" name="address" placeholder="Street Address" class="checkout__input__add">
-                                <input type="text" value="<?php echo $udetails_row!=null ? $udetails_row['address'] : "Not Available" ?>" placeholder="Apartment, suite, unite ect (optinal)" required>
+                                <input type="text" name="address1" id="address1" placeholder="Street Address" class="checkout__input__add">
+                                <input type="text" name="address2" id="address2" value="<?php echo $udetails_row!=null ? $udetails_row['address'] : "Not Available" ?>" placeholder="Apartment, suite, unite ect (optinal)" required>
                             </div>
                             <div class="checkout__input">
                                 <p>Town/City<span>*</span></p>
-                                <input type="text" name="city" required>
+                                <input type="text" id="city" name="city" required>
                             </div>
                             <div class="checkout__input">
                                 <p>Country/State<span>*</span></p>
-                                <input type="text" name="state" value="<?php echo $udetails_row!=null ? $udetails_row['state'] : "Not Available" ?>" required>
+                                <input type="text" id="state" name="state" value="<?php echo $udetails_row!=null ? $udetails_row['state'] : "Not Available" ?>" required>
                             </div>
                             <div class="checkout__input">
                                 <p>Pincode / ZIP<span>*</span></p>
-                                <input type="text" name="pincode" value="<?php echo $udetails_row!=null ? $udetails_row['pincode'] : "Not Available" ?>" required>
+                                <input type="text" id="pincode" name="pincode" value="<?php echo $udetails_row!=null ? $udetails_row['pincode'] : "Not Available" ?>" required>
                             </div>
                             <!-- <div class="row">
                                 <div class="col-lg-6">
@@ -402,7 +405,7 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Email<span>*</span></p>
-                                        <input type="text" name="email" value="<?php echo $udetails_row!=null ? $udetails_row['email'] : "Not Available" ?>" required>
+                                        <input type="text" id="email" name="email" value="<?php echo $udetails_row!=null ? $udetails_row['email'] : "Not Available" ?>" required>
                                     </div>
                                 </div>
                             </div>
@@ -428,8 +431,7 @@
                             </div>
                             <div class="checkout__input">
                                 <p>Order notes<span>*</span></p>
-                                <input type="text"
-                                    placeholder="Notes about your order, e.g. special notes for delivery.">
+                                <input type="text" id="message" name="message" placeholder="Notes about your order, e.g. special notes for delivery." required>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
@@ -438,10 +440,11 @@
                                 <div class="checkout__order__products">Products <span>Total</span></div>
                                 <ul>
                                     <?php
+                                        $cart_id_arr= [];
                                         if($cart_items_res && mysqli_num_rows($cart_items_res) > 0){
                                             $book_total_price=0;
                                             while($cart_row= mysqli_fetch_array($cart_items_res)){
-
+                                                $cart_id_arr[]= $cart_row['cart_id'];
                                                 $book_res= mysqli_query($conn,"SELECT * from tbl_bookinfo WHERE book_id=".$cart_row['book_id']);
                                                 if($book_res && mysqli_num_rows($book_res) > 0){
                                                     $book_row= mysqli_fetch_array($book_res);
@@ -450,6 +453,7 @@
                                                 }
                                             }
                                         }
+                                        $cartid_json_arr= json_encode($cart_id_arr);
                                     ?>
                                     <!-- <li>Vegetable’s Package <span>₹75.99</span></li>
                                     <li>Fresh Vegetable <span>₹151.99</span></li>
@@ -481,7 +485,7 @@
                                     </label>
                                 </div> -->
                                 <!-- <button type="submit" name="place_order" class="site-btn">PLACE ORDER</button><br><br> -->
-                                <button type="submit" name="submit2" class="site-btn">PLACE ORDER</button><br><br>
+                                <button type="submit" name="submit2" class="site-btn">PAY AND ORDER</button><br><br>
                                 
                                 <input type="button" class="site-btn" name="pay" id ="rzp-button1" value="pay now" onclick="pay_now()">
                             </div>
@@ -562,11 +566,36 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
+
     <script>
+        $(window).on('load', function() {
+            pay_now();
+        });
+
+        $('#order_form').submit(function(e){
+            e.preventDefault();
+            $('#rzp-button1').click();
+        });
+    </script>
+
+    <script>
+
     function pay_now(){
 
     var name=jQuery('#name').val();
+    var phone=jQuery('#phone').val();
+    var country=jQuery('#country').val();
+    var address1=jQuery('#address1').val();
+    var address2=jQuery('#address2').val();
+    var city=jQuery('#city').val();
+    var state=jQuery('#state').val();
+    var pincode=jQuery('#pincode').val();
+    var email=jQuery('#email').val();
+    var message=jQuery('#message').val();
+
+    var cart_id_arr= JSON.parse('<?php echo $cartid_json_arr; ?>');
     var amt=<?php echo $book_total_price; ?>;
+    
     var options = {
     "key": "rzp_test_PlbZAtajYXmhOa",
     "amount": amt*100, 
@@ -578,12 +607,31 @@
         console.log(response);
         jQuery.ajax({
             type:'POST',
-            url:'payment.php',
-            data:"payment_id="+response.razorpay_payment_id+"&amt="+amt+"&name="+name,
+            url:'./payments/payment.php',
+            data:{
+                    "payment_id":response.razorpay_payment_id,
+                    "amt":amt,
+                    "name":name,
+                    'phone':phone,
+                    'country':country,
+                    'address':address1+", "+address2,
+                    'city':city,
+                    'state':state,
+                    'pincode':pincode,
+                    'email':email,
+                    'message':message,
+                    'cart_item_arr': (cart_id_arr.length > 0) ?  JSON.stringify(cart_id_arr) : JSON.stringify([0])
+                },
             success:function(result){
-                window.location.href="thankyou.php";
+                if(result=="true"){
+                    alert('Payment Done Successfully...');
+                    window.location.href="index.php";
+                }
+                else{
+                    alert('Payment Failed !! Please try again !! Error : '+result);
+                }
+                //window.location.href="./payments/thankyou.php";
             }
-
         })
         // if(response){
         //     window.location.href="/adsol/index.php";

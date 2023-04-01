@@ -324,22 +324,6 @@
                     </div>
                 </div>
                 
-                <?php
-$category = $pcategory; // example category
-$url = 'http://localhost:5000/recommend_books';
-$data = array('category' => $category);
-
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$response = curl_exec($ch);
-echo $response;
-curl_close($ch);
-?>
-
-                
-                
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
                     
@@ -389,20 +373,37 @@ curl_close($ch);
 
 
 
-                        <ul>
+                        <!-- <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
-                            <!-- <li><b>Weight</b> <span>0.5 kg</span></li> -->
-                            <li><b>Share on</b>
-                                <div class="share">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                </div>
+                            <li><b>Weight</b> <span>0.5 kg</span></li>
+                            <li><b>Recommanded Books</b>
+                                
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
+
+                    <div><br><br><b>Recommanded Books</b></div>
+                    <?php
+                        $category = $pcategory; // example category
+                        $url = 'http://localhost:5000/recommend_books';
+                        $data = array('category' => $category);
+
+                        $ch = curl_init($url);
+                        curl_setopt($ch, CURLOPT_POST, true);
+                        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        $response = curl_exec($ch);
+                        if($response!=null && !empty($response)){
+                            $data_arr= json_decode($response);
+                            for($i=0;$i<sizeof($data_arr);$i++){
+                                echo "<img src='".$data_arr[$i]->image."' ><p>".$data_arr[$i]->title."</p>";
+                            }
+                        }
+                        echo $response;
+                        curl_close($ch);
+                    ?>
+
                  </div>
                 <div class="col-lg-12">
                     <div class="product__details__tab">
@@ -417,9 +418,7 @@ curl_close($ch);
                                     <a href="ratingindexpage.php?id=<?php echo $bookid ?>"><button type="submit"  class="site-btn" >View and post your Reviews here!</button>
                             </li>
                             <li class="nav-item">
-                                <!-- <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
                                 
-                                    aria-selected="false">Reviews <span>(1)</span></a>       -->
                             </li>
                         </ul>
       

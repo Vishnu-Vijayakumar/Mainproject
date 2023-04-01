@@ -396,7 +396,7 @@
                                 <?php
                                     $user_id= $_SESSION['user_loginid'];
                                     $all_total=0;
-                                    $cart_items_res= mysqli_query($conn, "SELECT * from tbl_Cart WHERE login_id=$user_id");
+                                    $cart_items_res= mysqli_query($conn, "SELECT * from tbl_cart WHERE login_id=$user_id"." AND cart_buy_status=0");
                                     if($cart_items_res && mysqli_num_rows($cart_items_res) > 0){
                                         while($cart_row= mysqli_fetch_array($cart_items_res)){
                                             $each_total=0;

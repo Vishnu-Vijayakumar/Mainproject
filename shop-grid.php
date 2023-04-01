@@ -271,11 +271,8 @@
                                 <input type="text" placeholder="What do yo u need?">
                                 <button type="submit" class="site-btn">SEARCH</button> -->
 
-                                <div id="search_container">
-                                    
-                                    
+                                <div id="search_container"> 
                                     <input type="text" name="search_bar_input"   onkeyup="searchFunc();"  id="search_bar_input" placeholder="What do you need?">
-                                    <img id="search_container" src="<?php echo './seller/uploaded_images/'.$book_details['book_img']; ?>">
                                     <span id="search_bar_searchbtn"><i class="fa fa-search"></i></span>
                                     <div class="display-box hide" id="db_result_box" >
         

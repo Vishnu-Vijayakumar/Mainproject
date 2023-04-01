@@ -7,7 +7,7 @@
         $quantity= $_POST['item_quantity'];
         $stock= $_POST['item_pstock'];
 
-        $sql= "INSERT INTO tbl_cart VALUES(null, $user_id, $prod_id, $quantity)";
+        $sql= "INSERT INTO tbl_cart VALUES(null, $user_id, $prod_id, $quantity, 0)";
         $cart_res= mysqli_query($conn, $sql);
         
         if($cart_res){

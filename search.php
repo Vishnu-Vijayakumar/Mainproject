@@ -29,7 +29,7 @@
               echo '
                 <div class="serch_result_row">
                     <a href="./shop-details.php?id='.$book_id.'" target="_blank">
-                        <div class="db_img"><img src="'.$book_img.'" alt="'.$book_name.'"></div>
+                        <div class="db_img"><img src="./seller/uploaded_images/'.$book_img.'" alt="'.$book_name.'"></div>
                         <div class="db_pname">'.$book_name.'</div>
                     </a>
                 </div>
