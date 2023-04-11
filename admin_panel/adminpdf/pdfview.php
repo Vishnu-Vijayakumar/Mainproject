@@ -11,10 +11,9 @@
 <table style="width:100%"cellpadding="10" cellspacing="4" border="3" align="center">          
               <tr>
                   <th>No</th>
-                  <!-- <th>Title</th>  -->
                   <th>Book Author</th>
                   <th>Book Name</th>
-                  <th>Title</th>
+                  <!-- <th>Title</th> -->
                   <th>Download</th>
               </tr>  
               
@@ -32,7 +31,7 @@ while($row=mysqli_fetch_array($query))
                   <!-- < <td><?php echo htmlentities($row['Title']);?></td> -->
                   <td><?php echo htmlentities($row['book_author']);?></td>
                   <td><?php echo htmlentities($row['book_name']);?></td>
-                  <td><?php echo htmlentities($row['pdf']);?></td>
+                  <!-- <td><?php echo htmlentities($row['pdf']);?></td> -->
                   <td><a href="..\admin_panel\adminpdf\display_pdf.php?id=<?php echo $row['id']?>">View</a></td>
               </tr>
               <?php $cnt=$cnt+1; } ?>    

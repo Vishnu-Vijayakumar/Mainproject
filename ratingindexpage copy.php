@@ -9,7 +9,7 @@
 
   
 include ('connection.php');
-$bookid=$_GET['id'];
+// $id=$_GET['id'];
 $sql="select * from tbl_registration where username='".$_SESSION['user_username']."'";
 $rs= mysqli_query($conn,$sql);
 $r= $_SESSION['user_username'];
@@ -366,7 +366,7 @@ $r= $_SESSION['user_username'];
     					<h3 class="mt-4 mb-3">Write Review Here</h3>
                         <!-- <a href="ratingindexpage.php?book_id=<?php echo $bookid ?>"><button type="submit"  class="site-btn" >View and post your Reviews here!</button> -->
 
-    					<!-- <a href="feedbackaction.php?id=<?php echo $bookid ?>"><button type="button" name="add_review" id="add_review" class="btn btn-primary">Review</button> -->
+    					<a href="feedbackaction.php?id=<?php echo $bookid ?>"><button type="button" name="add_review" id="add_review" class="btn btn-primary">Review</button>
                     <button type="submit" name="add_review" id="add_review"  class="site-btn" >Review</button>
 
     				</div>
