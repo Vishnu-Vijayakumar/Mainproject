@@ -28,7 +28,7 @@
           <td><?=$row["order_date"]?></td>
           <td><?=$row["email"]?></td>
            <?php 
-                if($row["order_id"]==0){
+                if($row["order_id"]==1){
                             
             ?>
                 <td><button class="btn btn-danger" onclick="ChangeOrderStatus('<?=$row['order_id']?>')">Pending </button></td>
@@ -36,11 +36,11 @@
                         
                 }else{
             ?>
-                <td><button class="btn btn-success" onclick="ChangeOrderStatus('<?=$row['order_id']?>')">Delivered</button></td>
+                <td><button class="btn btn-success" onclick="ChangeOrderStatus('<?=$row['order_id']?>')">Processing</button></td>
         
             <?php
             }
-                if($row["pay_id"]==0){
+                if($row["pay_id"]==1){
             ?>
                 <td><button class="btn btn-danger"  onclick="ChangePay('<?=$row['order_id']?>')">Unpaid</button></td>
             <?php

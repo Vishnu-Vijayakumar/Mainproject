@@ -14,6 +14,7 @@
     <a href="#sellers"  onclick="showSellers()" ><i class="fa fa-users"></i> Sellers</a>   
     <a href="#products"   onclick="showProductItems()" ><i class="fa fa-th"></i> Books</a>
     <a href="#sizes"   onclick="showSizespdf()" ><i class="fa fa-th"></i> Available PDF </a>
+    <a href="#sizes"   onclick="showSizesarticlepdf()" ><i class="fa fa-th"></i> Articles </a>
     <a href="#orders" onclick="showOrders()"><i class="fa fa-list"></i> Orders</a>
     <!-- <a href="#Logout"   onclick="Logout()" ><i class="fa fa-th-list"></i> Logout</a>   -->
 

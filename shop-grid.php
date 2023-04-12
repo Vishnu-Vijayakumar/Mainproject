@@ -185,6 +185,7 @@
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     <li><a href="booklibrary.php">Book Library</a></li>
+                                    <li><a href="bookarticle.php">Articles</a></li>
                                     <li><a href="./shoping-cart.html">Shoping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="seller/sellerlogin/Sellerlogin.php">Start Selling</a></li>

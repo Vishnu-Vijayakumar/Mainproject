@@ -19,11 +19,11 @@
          while ($row=$result-> fetch_assoc()) {
      ?>
         <tr>
-           <td><?=$row["ad_id"]?></td>
+           <td><?=$row["pay_id"]?></td>
            <td><?=$row["name"]?></td>
            <td><?=$row["amount"]?></td>
            <td><?=$row["payment_id"]?></td>
-           <td><?=$row["pay_id"]?></td>
+           <td><?=$row["ad_id"]?></td>
             <?php 
                  if($row["pay_id"]==0){
                  }
