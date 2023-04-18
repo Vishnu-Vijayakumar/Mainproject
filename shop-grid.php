@@ -145,11 +145,10 @@
                             </div>
                             <div class="header__top__right__language">
                                 <img src="img/language.png" alt="">
-                                <div>English</div>
+                                <div>Profile</div>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
-                                    <li><a href="#">Spanis</a></li>
-                                    <li><a href="#">English</a></li>
+                                    <li><a href="editprofile.php">Profile</a></li>
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
@@ -192,7 +191,7 @@
                                     <li><a href="wishlistdemo.php">My Wishlist</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="bookarticle.php">Article</a></li>
                             <li><a href="./contact.html">Contact</a></li>
                         </ul>
                     </nav>
@@ -229,15 +228,9 @@
             
                             <li><a href="#">Fiction</a></li>
                             <li><a href="#">Self Devolepment</a></li>
-                            <li><a href="#">Non-Fiction</a></li>
                             <li><a href="#">Academics</a></li>
-                            <li><a href="#">Competetive Exams</a></li>
-                            <li><a href="#">School</a></li>
                             <li><a href="#">Philosophy</a></li>
                             <li><a href="#">Religion</a></li>
-                            <li><a href="#">Poems</a></li>
-                            <li><a href="#">Stories</a></li>
-                            <li><a href="#">Children</a></li>
                         </ul>
                     </div>
                 </div>
@@ -324,19 +317,22 @@
                         <div class="sidebar__item">
                             <h4>Department</h4>
                             <ul>
-                                 <li><a href="#">Fiction</a></li>
+
+                            <li><a href="#">Fiction</a></li>
                             <li><a href="#">Self Devolepment</a></li>
-                            <li><a href="#">Non-Fiction</a></li>
                             <li><a href="#">Academics</a></li>
-                            <li><a href="#">Competetive Exams</a></li>
-                            <li><a href="#">School</a></li>
                             <li><a href="#">Philosophy</a></li>
                             <li><a href="#">Religion</a></li>
-                            <li><a href="#">Poems</a></li>
-                            <li><a href="#">Stories</a></li>
-                            <li><a href="#">Children</a></li>
+
+
                             </ul>
                         </div>
+
+
+
+                        
+
+
                         <div class="sidebar__item">
                             <h4>Price</h4>
                             <div class="price-range-wrap">
@@ -422,7 +418,7 @@
                         </div>
                         <div class="sidebar__item">
                             <div class="latest-product__text">
-                                <h4>Latest Products</h4>
+                                <h4>Recommended</h4>
                                 <div class="latest-product__slider owl-carousel">
                                     <div class="latest-prdouct__slider__item">
                                         <a href="#" class="latest-product__item">
@@ -431,7 +427,7 @@
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>Cracking the Coding Interview</h6>
-                                                <span>Rs499</span>
+                                                <!-- <span>Rs499</span> -->
                                             </div>
                                         </a>
                                         <a href="#" class="latest-product__item">
@@ -502,7 +498,7 @@
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg" data-setbg="<?php echo './seller/uploaded_images/'.$row['book_img']; ?>">
-                                            <div class="product__discount__percent">-21%</div>
+                                            <!-- <div class="product__discount__percent">-21%</div> -->
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>

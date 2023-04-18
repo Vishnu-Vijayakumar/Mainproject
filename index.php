@@ -130,6 +130,7 @@
                 </li>
                 <li><a href="../seller/sellerindex.php">Seller</a></li>
                 <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./contact.html">profile</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -171,10 +172,10 @@
                             </div>
                             <div class="header__top__right__language">
                                 <img src="img/language.png" alt="">
-                                <div>English</div>
+                                <div>Profile</div>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
-                                    <li><a href="#">English</a></li>
+                                    <li><a href="#">Profile</a></li>
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
@@ -218,15 +219,16 @@
                                     <li><a href="seller/sellerlogin/Sellerlogin.php">Start selling</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="bookarticle.php">Article</a></li>
                             <li><a href="./contact.html">Contact</a></li>
+                            
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="wishlistdemo.php"><i class="fa fa-heart"></i> <span></span></a></li>
                             <li><a href="shoping-cart.php"><i class="fa fa-shopping-bag"></i> <span></span></a></li>
                         </ul>
                         <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
