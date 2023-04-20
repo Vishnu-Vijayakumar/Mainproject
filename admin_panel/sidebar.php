@@ -16,6 +16,7 @@
     <a href="#sizes"   onclick="showSizespdf()" ><i class="fa fa-th"></i> Available PDF </a>
     <a href="#sizes"   onclick="showSizesarticlepdf()" ><i class="fa fa-th"></i> Articles </a>
     <a href="#orders" onclick="showOrders()"><i class="fa fa-list"></i> Orders</a>
+    <a href="#orders" onclick="showReport()"><i class="fa fa-list"></i>Payment&Order</a>
     <!-- <a href="#Logout"   onclick="Logout()" ><i class="fa fa-th-list"></i> Logout</a>   -->
 
 

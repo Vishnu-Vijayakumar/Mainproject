@@ -226,7 +226,7 @@
                         </div>
                         <ul>
             
-                            <li><a href="#">Fiction</a></li>
+                            <li><a href="#">Fict</a></li>
                             <li><a href="#">Self Devolepment</a></li>
                             <li><a href="#">Academics</a></li>
                             <li><a href="#">Philosophy</a></li>
@@ -318,8 +318,12 @@
                             <h4>Department</h4>
                             <ul>
 
+                            <li> <a href="fiction.php"  onclick="showfiction()" ><i class="fa fa-list"></i> Fiction</a></li>
+                            <li><a href="story.php"  onclick="showdevolepment()" ><i class="fa fa-list"></i> Story</a></li>
+                            <li><a href="#story"  onclick="showstory()" ><i class="fa fa-list"></i> </a></li>
+
+
                             <li><a href="#">Fiction</a></li>
-                            <li><a href="#">Self Devolepment</a></li>
                             <li><a href="#">Academics</a></li>
                             <li><a href="#">Philosophy</a></li>
                             <li><a href="#">Religion</a></li>

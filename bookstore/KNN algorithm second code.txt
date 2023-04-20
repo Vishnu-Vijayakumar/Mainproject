@@ -1,5 +1,6 @@
 from flask import Flask, request
 import pandas as pd
+from collections import Counter
 import math
 
 app = Flask(__name__)
@@ -35,18 +36,34 @@ ratings_data = pd.read_csv('main_dataset.csv')
 
 # Extract features and labels
 X = ratings_data[['category']].values
-y = ratings_data['name'].values
+y = ratings_data['category'].values
 
 # Create KNN model and fit data
 knn_model = BookKNN(k=3)
 knn_model.fit(X, y)
 
-@app.route('/recommend', methods=['POST'])
+@app.route('/recommend')
 def recommend_book():
-    category = request.form.get('category') # Get the category from the POST data
-    test_book = [1 if c == category else 0 for c in ['category']] # Create a feature vector for the test book
-    book_title = knn_model.predict([test_book])[0] # Make a prediction for the test book
-    return str(book_title) # Return the recommended book title as a string
+    category = request.args.get('category') # Get the category from the query string
+    test_book = [1 if c == category else 0 for c in [['category']]] # Create a feature vector for the test book
+    book_title = knn_model.predict(['name'])[0] # Make a prediction for the test book
+    return book_title # Return the recommended book title
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) # Start the Flask API
+
+
+
+
+
+
+
+
+ <?php
+                        $category = $pcategory; // example category
+                       // Set the category to recommend books for
+$url = "http://localhost:5000/recommend?category=" . $category; // Build the URL to call the Flask API
+$result = file_get_contents($url); // Call the Flask API and get the result
+echo $result; // Display the recommended book to the user
+
+                    ?>

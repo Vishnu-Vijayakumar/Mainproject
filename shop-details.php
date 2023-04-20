@@ -385,24 +385,25 @@
 
                     <div><br><br><b>Recommanded Books</b></div>
                     <?php
-                        $category = $pcategory; // example category
-                        $url = 'http://localhost:5000/recommend_books';
-                        $data = array('category' => $category);
 
-                        $ch = curl_init($url);
-                        curl_setopt($ch, CURLOPT_POST, true);
-                        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                        $response = curl_exec($ch);
-                        if($response!=null && !empty($response)){
-                            $data_arr= json_decode($response);
-                            for($i=0;$i<sizeof($data_arr);$i++){
-                                echo "<img src='".$data_arr[$i]->image."' ><p>".$data_arr[$i]->title."</p>";
-                            }
-                        }
-                        echo $response;
-                        curl_close($ch);
-                    ?>
+$category = "category"; // Set the category to recommend books for
+$url = "http://localhost:5000/recommend"; // Build the URL to call the Flask API
+$data = array('category' => $category); // Build the data to send in the POST request
+
+$curl = curl_init();
+curl_setopt_array($curl, array(
+    CURLOPT_URL => $url,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_POST => true,
+    CURLOPT_POSTFIELDS => http_build_query($data),
+));
+
+$result = curl_exec($curl);
+
+curl_close($curl);
+
+echo $result; // Display the recommended book to the user
+?>
 
                  </div>
                 <div class="col-lg-12">
