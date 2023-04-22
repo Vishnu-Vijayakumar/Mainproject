@@ -1,52 +1,49 @@
-from flask import Flask, request
-import pandas as pd
-import math
+import csv
+import numpy as np
+from sklearn.neighbors import KNeighborsClassifier
+from flask import Flask, request, jsonify
 
+# Load the book data from a CSV file
+with open('main_dataset.csv', newline='') as f:
+    reader = csv.DictReader(f)
+    books = [row for row in reader]
+
+# Create a dictionary to store books by category
+books_by_category = {}
+for book in books:
+    if book['category'] not in books_by_category:
+        books_by_category[book['category']] = []
+    books_by_category[book['category']].append(book)
+
+# Create a KNN model for each category
+knn_models = {}
+for category, category_books in books_by_category.items():
+    X = np.array([[float(book['rating']) if 'rating' in book else 0,
+                   len(book['author'].split(','))] for book in category_books])
+    y = np.array([book['name'] for book in category_books])
+    knn = KNeighborsClassifier(n_neighbors=5, algorithm='auto')
+    knn.fit(X, y)
+    knn_models[category] = knn
+
+# Initialize a Flask app
 app = Flask(__name__)
 
-def euclidean_distance(x1, x2):
-    # Calculates the Euclidean distance between two points
-    return math.sqrt(sum([(x1[i] - x2[i])**2 for i in range(len(x1))]))
-
-class BookKNN:
-    def __init__(self, k=3):
-        self.k = k
-        
-    def fit(self, X, y):
-        self.X_train = X
-        self.y_train = y
-        
-    def predict(self, X):
-        predictions = []
-        for x in X:
-            # Calculate distances between the test book and all training books
-            distances = [euclidean_distance(x, x_train) for x_train in self.X_train]
-            # Get the k nearest neighbors
-            k_nearest_neighbors = sorted(range(len(distances)), key=lambda i: distances[i])[:self.k]
-            # Get the labels (i.e., ratings) of the k nearest neighbors
-            k_nearest_labels = [self.y_train[i] for i in k_nearest_neighbors]
-            # Make a prediction based on the weighted average rating of the k nearest neighbors
-            prediction = sum(k_nearest_labels) / len(k_nearest_labels)
-            predictions.append(prediction)
-        return predictions
-
-# Load book ratings data
-ratings_data = pd.read_csv('main_dataset.csv')
-
-# Extract features and labels
-X = ratings_data[['category']].values
-y = ratings_data['name'].values
-
-# Create KNN model and fit data
-knn_model = BookKNN(k=3)
-knn_model.fit(X, y)
-
-@app.route('/recommend', methods=['POST'])
-def recommend_book():
-    category = request.form.get('category') # Get the category from the POST data
-    test_book = [1 if c == category else 0 for c in ['category']] # Create a feature vector for the test book
-    book_title = knn_model.predict([test_book])[0] # Make a prediction for the test book
-    return str(book_title) # Return the recommended book title as a string
+# Define a route to handle book recommendation requests
+@app.route('/recommend_books', methods=['POST'])
+def recommend_books():
+    category = request.form['category']
+    
+    # Find the 5 closest books in the same category
+    knn = knn_models[category]
+    category_books = books_by_category[category]
+    X = np.array([[float(book['rating']) if 'rating' in book else 0,
+                   len(book['author'].split(','))] for book in category_books])
+    y = np.array([book['name'] for book in category_books])
+    indices = knn.kneighbors(X)[1]
+    similar_books = [category_books[i] for i in indices.flatten()[1:6]]
+    
+    # Return the recommended books
+    return jsonify([{'title': book['name'], 'author': book['author'], 'image': book['image']} for book in similar_books])
 
 if __name__ == '__main__':
     app.run(debug=True)

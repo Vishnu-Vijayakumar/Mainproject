@@ -1,0 +1,63 @@
+import csv
+import numpy as np
+from sklearn.neighbors import KNeighborsClassifier
+from flask import Flask, request, jsonify
+
+# Load the book data from a CSV file
+with open('main_dataset.csv', newline='') as f:
+    reader = csv.DictReader(f)
+    books = [row for row in reader]
+
+# Create a feature matrix X and a target vector y
+X = np.array([[float(book['rating']) if 'rating' in book else 0,
+              len(book['author'].split(','))] for book in books])
+y = np.array([book['category'] for book in books])
+
+# Create and fit a KNN model to the data
+knn = KNeighborsClassifier(n_neighbors=5, algorithm='auto')
+knn.fit(X, y)
+
+# Initialize a Flask app
+app = Flask(__name__)
+
+# Define a route to handle book recommendation requests
+@app.route('/recommend_books', methods=['POST'])
+def recommend_books():
+    category = request.form['category']
+    
+    # Find the 5 closest books in the same category
+    indices = np.where(y == category)[0]
+    distances, indices = knn.kneighbors(X[indices])
+    similar_books = [books[i] for i in indices.flatten()[1:6]]
+    
+    # Return the recommended books
+    return jsonify([{'title': book['name'], 'author': book['author'], 'image': book['image']} for book in similar_books])
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+
+
+           <?php
+                        $category = $pcategory; // example category
+                        $url = 'http://localhost:5000/recommend_books';
+                        $data = array('category' => $category);
+
+                        $ch = curl_init($url);
+                        curl_setopt($ch, CURLOPT_POST, true);
+                        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        $response = curl_exec($ch);
+                        if($response!=null && !empty($response)){
+                            $data_arr= json_decode($response);
+                            for($i=0;$i<sizeof($data_arr);$i++){
+                                echo "<img src='".$data_arr[$i]->image."' ><p>".$data_arr[$i]->title."</p>";
+                            }
+                        }
+                        echo $response;
+                        curl_close($ch);
+                    ?>
+
+
+

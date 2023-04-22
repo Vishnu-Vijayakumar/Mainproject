@@ -92,18 +92,21 @@
                             <div class="name">password</div>
                             <div class="value">
                                 <div class="row row-space">
-                                    <div class="col-2">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="password" name="Password">
-                                            <label class="label--desc">Password</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="password" name="Confirm_Password">
-                                            <label class="label--desc">Confirm password</label>
-                                        </div>
-                                    </div>
+                                <div class="col-2">
+    <div class="input-group-desc">
+        <input class="input--style-5" type="password" name="Password" id="password">
+        <label class="label--desc">Password</label>
+        <div class="invalid-feedback"></div>
+    </div>
+</div>
+<div class="col-2">
+    <div class="input-group-desc">
+        <input class="input--style-5" type="password" name="Confirm_Password" id="confirm_password">
+        <label class="label--desc">Confirm password</label>
+        <div class="invalid-feedback"></div>
+    </div>
+</div>
+
                                 </div>
                             </div>
                         </div>
@@ -213,7 +216,7 @@
     <script src="vendor/datepicker/daterangepicker.js"></script>
 
     <!-- Main JS-->
-    <script src="global.js"></script>
+    <script src="validation.js"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 

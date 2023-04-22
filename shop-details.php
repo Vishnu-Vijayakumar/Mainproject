@@ -381,31 +381,92 @@
                                 
                             </li>
                         </ul> -->
-                    </div>
+                        <div><br><br><b>Recommended Books</b></div>
+<style>
+  .card {
+    display: inline-flex; /* change display to inline-flex */
+    flex-direction: column; /* set flex-direction to column to stack title and author */
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 0px 5px #ddd;
+    width: 45%; /* set width to 45% to display two cards in a row */
+  }
 
-                    <div><br><br><b>Recommanded Books</b></div>
-                    <?php
+  .card-img {
+    width: 100%; /* set width to 100% to take up the full width of the card */
+    height: 200px;
+    margin-right: 10px;
+  }
 
-$category = "category"; // Set the category to recommend books for
-$url = "http://localhost:5000/recommend"; // Build the URL to call the Flask API
-$data = array('category' => $category); // Build the data to send in the POST request
+  .card-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
 
-$curl = curl_init();
-curl_setopt_array($curl, array(
-    CURLOPT_URL => $url,
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_POST => true,
-    CURLOPT_POSTFIELDS => http_build_query($data),
-));
+  .card-body {
+    flex: 1;
+  }
 
-$result = curl_exec($curl);
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
 
-curl_close($curl);
+  .card-author {
+    font-size: 16px;
+    margin: 0;
+  }
 
-echo $result; // Display the recommended book to the user
+  .slider-track {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* add justify-content to create some space between cards */
+  }
+</style>
+
+<div class="recommendation-container">
+  <div class="slider-container">
+    <div class="slider-track">
+    <?php
+    $category = $pcategory; // example category
+    $url = 'http://localhost:5000/recommend_books';
+    $data = array('category' => $category);
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    if ($response != null && !empty($response)) {
+        $data_arr = json_decode($response);
+
+        foreach ($data_arr as $book) {
+            echo '<div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">'.$book->title.'</h5>
+                    <p class="card-author">'.$book->author.'</p>
+                </div>
+                <div class="card-img">
+                    <img src="'.$book->image.'" alt="'.$book->title.'" class="img-fluid">
+                </div>
+            </div>';
+        }
+    } else {
+        echo "No books found";
+    }
 ?>
+    </div>
+  </div>
+</div>
 
-                 </div>
+
+
                 <div class="col-lg-12">
                     <div class="product__details__tab">
                         <ul class="nav nav-tabs" role="tablist">
@@ -635,8 +696,9 @@ echo $result; // Display the recommended book to the user
         </div>
     </footer>
     <!-- Footer Section End -->
-
+    
     <!-- Js Plugins -->
+    <script src="recommend.js"></script>
     <script src="bookstore/js/jquery-3.3.1.min.js"></script>
     <script src="bookstore/js/bootstrap.min.js"></script>
     <script src="bookstore/js/jquery.nice-select.min.js"></script>

@@ -1,0 +1,35 @@
+SIGNUP USER PREVIOUS CODE
+
+
+   <div class="signup-form1-div">
+                        <div class="form-group">
+                            <input class="form-control" type="text" id="first_name" onchange="firstNameValidate()" name="first_name" placeholder="First Name" required>
+                            <span id="empty-first-name"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                        <input class="form-control" type="text" id="last_name" onchange="lastNameValidate()" name="last_name" placeholder="Last Name" required>
+                        <span id="empty-last-name"></span>
+                        </div>
+                    </div>
+
+
+
+function firstNameValidate() {
+    const firstNameInput = document.getElementById("first_name");
+    const firstNameValue = firstNameInput.value.trim();
+  
+    if (firstNameValue.length === 0) {
+      document.getElementById("empty-first-name").innerHTML = "Please enter your first name.";
+      firstNameInput.classList.add("is-invalid");
+      firstNameInput.classList.remove("is-valid");
+    } else if (firstNameValue.charAt(0) !== firstNameValue.charAt(0).toUpperCase()) {
+      document.getElementById("empty-first-name").innerHTML = "First letter of First Name must be capital";
+      firstNameInput.classList.add("is-invalid");
+      firstNameInput.classList.remove("is-valid");
+    } else {
+      document.getElementById("empty-first-name").innerHTML = "";
+      firstNameInput.classList.remove("is-invalid");
+      firstNameInput.classList.add("is-valid");
+    }
+  }

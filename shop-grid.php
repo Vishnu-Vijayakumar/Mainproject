@@ -337,7 +337,7 @@
                         
 
 
-                        <div class="sidebar__item">
+                        <!-- <div class="sidebar__item">
                             <h4>Price</h4>
                             <div class="price-range-wrap">
                                 <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
@@ -353,7 +353,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- <div class="sidebar__item sidebar__item__color--option">
                             <h4>Colors</h4>
                             <div class="sidebar__item__color sidebar__item__color--white">
@@ -394,23 +394,24 @@
                             </div>
                         </div> -->
                         <div class="sidebar__item">
-                            <h4>Avilable Language</h4>
+                            <h4>Languages</h4>
+                            <ul>
                             <div class="sidebar__item__size">
                                 <label for="large">
-                                    English
+                                <a href="english.php"> English
                                     <input type="radio" id="large">
                                 </label>
                             </div>
                             <div class="sidebar__item__size">
-                                <label for="medium">
-                                    Malayalam
+                                <label for="medium" >
+                                 Malayalam
                                     <input type="radio" id="medium">
                                 </label>
                             </div>
                             <div class="sidebar__item__size">
                                 <label for="small">
                                     Hindi
-                                    <input type="radio" id="small">
+                                    <a href="malayalam.php" input type="radio" id="small">
                                 </label>
                             </div>
                             <!-- <div class="sidebar__item__size">
@@ -427,7 +428,7 @@
                                     <div class="latest-prdouct__slider__item">
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/bg1.jpg" alt="">
+                                                
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>Cracking the Coding Interview</h6>
@@ -436,49 +437,49 @@
                                         </a>
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/bg2.jpg"alt="">
+                                                
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>The Intelligent Investor</h6>
-                                                <span>Rs299</span>
+                                               
                                             </div>
                                         </a>
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/bg3.jpg" alt="">
+                                              
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>So Good They Can'T Ignore You</h6>
-                                                <span>Rs399</span>
+                                               
                                             </div>
                                         </a>
                                     </div>
                                     <div class="latest-prdouct__slider__item">
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/bg4.jpg" alt="">
+                                                
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>Influence</h6>
-                                                <span>Rs395</span>
+                                                
                                             </div>
                                         </a>
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/bg5.jpg" alt="">
+                                                
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>Meditations</h6>
-                                                <span>Rs250</span>
+                                                
                                             </div>
                                         </a>
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="img/latest-product/bg6.jpg"alt="">
+                                               
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>Rich Kids</h6>
-                                                <span>Rs250</span>
+                                                
                                             </div>
                                         </a>
                                     </div>

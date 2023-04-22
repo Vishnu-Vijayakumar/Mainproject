@@ -193,3 +193,61 @@ html,body{
     max-height: 40px;
     border-radius: 0px;
 }
+
+.error-message {
+    display: none;
+    color: red;
+    font-size: 12px;
+  }
+  .invalid {
+    border: 1px solid red;
+  }
+  .valid {
+    border: 1px solid green;
+  }
+  .recommendation-container {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .slider-container {
+    overflow: hidden;
+  }
+  
+  .slider-track {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease;
+  }
+  
+  .card {
+    flex: 0 0 auto;
+    width: 300px;
+    margin-right: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .card-body {
+    padding: 10px;
+  }
+  
+  .card-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .card-author {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+  }
+    
