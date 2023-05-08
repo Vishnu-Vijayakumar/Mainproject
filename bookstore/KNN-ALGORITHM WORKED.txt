@@ -60,4 +60,37 @@ if __name__ == '__main__':
                     ?>
 
 
+ <?php
+        $category = $pcategory; // example category
+        $url = 'http://localhost:5000/recommend_books';
+        $data = array('category' => $category);
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        if($response!=null && !empty($response)){
+            $data_arr= json_decode($response);
+            for($i=0;$i<sizeof($data_arr);$i++){
+              echo '<div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">'.$data_arr[$i]->title.'</h5>
+                        <p class="card-author">'.$data_arr[$i]->author.'</p>
+                      </div>
+                      <div class="card-img">
+                        <img src="'.$data_arr[$i]->image.'" alt="'.$data_arr[$i]->title.'" class="img-fluid">
+                      </div>
+                    </div>';
+            }
+        }
+        echo $response;
+        curl_close($ch);
+      ?>
+    </div>
+  </div>
+</div>
+
+
+
 

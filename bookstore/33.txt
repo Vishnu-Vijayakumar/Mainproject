@@ -1,0 +1,137 @@
+The K-Nearest Neighbors (KNN) algorithm is a machine learning algorithm that is commonly used for classification and regression tasks. The algorithm is based on the idea that similar items tend to be close to each other in a multi-dimensional space.
+In the context of book recommendation systems, the KNN algorithm can be used to recommend books to users based on the similarity between the books. The algorithm works by identifying the K nearest neighbors of a given book and recommending books that are similar to those neighbors.
+To implement the KNN algorithm for book recommendation systems, the first step is to collect data about books, including features such as the book title, author, genre, and user ratings. This data is then preprocessed and transformed into a format that can be used by the KNN algorithm.
+
+
+
+Similarity calculation:Calculate the similarity between books based on their features. One way to do this is by using cosine similarity. Cosine similarity measures the cosine of the angle between two vectors in a multi-dimensional space. The closer the angle between two vectors is to 0 degrees, the higher their similarity.
+
+Finding KNN: Based on the attributes of the KNN model created in step 5, identify the K closest neighbours of the user input book.
+
+Recommendation:Provide the customer with recommendations for the books that are the most comparable based on their K nearest neighbours. The suggested books might be arranged according to their similarity score or weighted according to their level of popularity.
+
+
+
+
+Cosine similarity
+This is a similarity measure commonly used in book recommendation systems that use content-based filtering. Cosine Similarity calculates the cosine of the angle between two vectors in multidimensional space, representing how similar the vectors are with respect to direction. In a book recommendation system, cosine similarity can be used to measure the similarity between the feature vectors of his two books, such as: B. A series of words in the description. The cosine similarity output ranges from -1 (perfectly dissimilar) to 1 (perfectly similar), with 0 indicating no correlation. 
+
+
+
+Sigmoid function
+This is an activation function commonly used in machine learning models, including those used in book recommendation systems. The sigmoid function maps any real number to a value between 0 and 1. This is commonly used in binary classification problems where the output can be 0 or 1. Book recommendation systems can use sigmoid functions in neural network models involving collaborative filtering or hybrid filtering approaches. The output of the sigmoid function is interpreted as the predicted probability that a user will like a particular book. 
+
+
+
+
+
+Cosine similarity
+This is a similarity measure commonly used in book recommendation systems that use content-based filtering. Cosine Similarity calculates the cosine of the angle between two vectors in multidimensional space, representing how similar the vectors are with respect to direction. In a book recommendation system, cosine similarity can be used to measure the similarity between the feature vectors of his two books, such as: B. A series of words in the description. The cosine similarity output ranges from -1 (perfectly dissimilar) to 1 (perfectly similar), with 0 indicating no correlation. 
+
+
+Sigmoid function
+This is an activation function commonly used in machine learning models, including those used in book recommendation systems. The sigmoid function maps any real number to a value between 0 and 1. This is commonly used in binary classification problems where the output can be 0 or 1. Book recommendation systems can use sigmoid functions in neural network models involving collaborative filtering or hybrid filtering approaches. The output of the sigmoid function is interpreted as the predicted probability that a user will like a particular book. 
+ 
+
+
+
+
+Cosine similarity
+This is a similarity measure commonly used in book recommendation systems that use content-based filtering. Cosine Similarity calculates the cosine of the angle between two vectors in multidimensional space, representing how similar the vectors are with respect to direction. In a book recommendation system, cosine similarity can be used to measure the similarity between the feature vectors of his two books, such as: B. A series of words in the description. The cosine similarity output ranges from -1 (perfectly dissimilar) to 1 (perfectly similar), with 0 indicating no correlation. 
+
+
+Sigmoid function
+This is an activation function commonly used in machine learning models, including those used in book recommendation systems. The sigmoid function maps any real number to a value between 0 and 1. This is commonly used in binary classification problems where the output can be 0 or 1. Book recommendation systems can use sigmoid functions in neural network models involving collaborative filtering or hybrid filtering approaches. The output of the sigmoid function is interpreted as the predicted probability that a user will like a particular book. 
+
+
+
+
+
+
+
+
+The K-Nearest Neighbors (KNN) algorithm is a nonparametric algorithm that does not involve an optimization or training process, so it does not use an activation function.
+
+However, if you're using a book recommendation machine learning model with activation functions, here are some common activation functions you can use. 
+
+
+
+
+
+Tanh function
+The hyperbolic tangent function (tanh) is another commonly used activation function that maps any real number to a value between -1 and 1. It is often used in neural networks because it can model nonlinear relationships. 
+
+
+
+Softmax function
+This is the activation function commonly used in multiclass classification problems. Map the model's output to a probability distribution of the possible classes, such that all class probabilities sum to one. 
+
+
+
+
+
+
+ReLU function
+The Rectified Linear Unit (ReLU) function is a general activation function that sets all negative values ​​to 0 and leaves positive values ​​unchanged. It is often used in neural networks because it is simple and can speed up the training process. 
+
+
+
+This code imports three modules: csv, numpy, and flask
+
+The numpy module provides support for arrays and matrices in Python and mathematical functions for manipulating arrays and matrices. 
+
+The sklearn.neighbors module provides implementations of various nearest neighbor algorithms, including the K nearest neighbors algorithm. 
+
+
+The Flask module is a micro web framework that allows you to build web applications in Python. This code is used to create a Flask application that can be used to expose the K-nearest neighbor classifier as a web API. 
+
+
+
+
+
+This code defines a Flask application that exposes a book recommendation system. It defines a single route /recommend_books that accepts POST requests and returns a list of recommended books based on the input provided.
+
+The function recommend_books() handles incoming requests to the /recommend_books route. It extracts the category of books from the request's form data and retrieves the pre-trained K-nearest neighbors (KNN) model for that category. The book recommendation system works using content-based filtering, where the recommendation is based on the similarity of features such as book rating and author name.
+
+The function then finds the 5 closest books in the same category using the KNN algorithm. The input features to the KNN model are the book rating and the length of the author name (split by comma if multiple authors). The function returns a JSON response with information about the recommended books, including the book's title, author, and image.
+
+The __name__ == '__main__' block is used to run the Flask application on a local server when this script is executed directly. The debug=True parameter enables debug mode, which is useful for debugging and development purposes.
+
+Overall, this code provides a simple implementation of a book recommendation system that can be accessed via a web API. The recommendation system uses KNN to find the most similar books based on the user's preferences, which are provided in the form of the book category.
+
+
+
+This code defines a Flask application that exposes a book recommendation system. It defines a single route /recommend_books that accepts POST requests and returns a list of recommended books based on the input provided.
+
+The recommend_books() function handles incoming requests to the /recommend_books route. Extract the book category from the request form data and get a pretrained K nearest neighbor (ANN) model for that category. The book recommendation system works in conjunction with content-based filtering that recommends books based on similarity of characteristics such as rating and author name. The function then uses the KNN algorithm to find the 5 closest matches within the same category. The input characteristics for the ANN model are the book rating and author name length (separated by commas for multiple authors). This function returns a JSON response containing information about the recommended book, such as the book's title, author, and image.
+
+The __name__ == '__main__' block is used to run the Flask application on the local server when running this script directly. The debug=True parameter enables debug mode. This is useful for debugging and development purposes. Overall, this code provides a simple implementation of a book recommendation system accessible via a web API. The recommendation system uses her KNN to find the most similar books based on user preferences. This comes in the form of book categories. 
+
+
+
+This paper discusses the application of KNN algorithm to recommend books based on the category
+
+This book recommendation system that uses the KNN algorithm and content-based filtering is an effective way to recommend books based on a user's favorite book categories.
+
+
+Overall, the book recommendation system using the KNN algorithm with content-based filtering is an effective and efficient way to recommend books to users based on their preferred book categories, improving user experience. and increase interaction with book content.  
+
+
+
+A KNN algorithm is used to find the nearest neighbors of a particular book based on its features. The recommender system then returns a list of books that are most similar in characteristics to the input book. This approach lends itself to personalized book recommendations that take into account the user's preferences and interests.   
+
+
+
+ CONCLUSION
+
+
+R. Swaminathan and T. O. Wong, "A content-based book recommendation system using KNN algorithm," 2019 3rd International Conference on Trends in Electronics and Informatics (ICOEI), Tirunelveli, India, 2019, pp. 136-141, doi: 10.1109/ICOEI.2019.8863002.
+
+Overall, the book recommendation system using the KNN algorithm with content-based filtering is an effective and efficient way to recommend books to users based on their preferred book categories, improving user experience. and increase interaction with book content.  
+
+
+J. B. Kim, J. Y. Lee, and H. J. Kim, "Book recommendation system using a hybrid approach of collaborative filtering and content-based filtering," Concurrency and Computation: Practice and Experience, vol. 33, no. 23, e6069, 2021.
+
+
+
+M. H. Habibie, F. Raharja, and S. S. Siregar, "Content-Based Book Recommendation System Using K-Nearest Neighbor Algorithm," in Proceedings of the 2021 2nd International Conference on Computer Science and Artificial Intelligence (CSAI 2021), ACM, 2021, pp. 14-18.

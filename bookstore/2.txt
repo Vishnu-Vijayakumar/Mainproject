@@ -1,0 +1,47 @@
+Introduction
+From online shopping to music/movies and many other services, recommendation systems are utilized in various industries.   We are using content-based filtering in this recommendation system, which is one of the two types of recommendation systems - the other being collaborative filtering.   One of the popular techniques used in book recommendation systems is content-based filtering.   To determine the similarity of a book to others, this approach analyzes its content, including genre/categories, author, language, and keywords.   In this system, we use the KNN algorithm among several algorithms that can be used for recommendation, such as matrix factorization, association rule mining, and deep learning.
+Using the KNN (K-Nearest Neighbor) algorithm can enhance the performance of a content-based filtering book recommendation system.   By identifying the k-nearest neighbors to a particular book based on their content similarity, this algorithm works.   Recommendations for new books are made to the user based on these neighbors.
+
+Challenges :
+
+Sparse data can occur in content-based filtering when there are many books with limited or no user ratings, resulting in data sparsity.   Identifying the k-nearest neighbors to a particular book can be difficult, which could impact the accuracy of the recommendations.
+
+
+
+
+II.	LITERATURE REVIEW
+
+In this paper, Khalid Anwara et al. [1] utilized AI strategies, including supervised learning and clustering techniques, to enhance their book suggestion system and improve the data.   The main focus of the program is on the dealers and buyers who use the internet business platform to generate income.
+
+In January 2018, Satish Kolhe and colleagues[2] completed a request for library resources in a recommender system using artificial intelligence techniques. They utilized the set rule extraction method to perform substance-based computation, which categorizes books into different classes and assists clients in finding them based on their characteristics. Additionally, the system proposes placing books, papers, etc. in a decision tree plan to ensure clients can access legitimate resources. This structure can be expanded by improving the informational collection and idea systems, ultimately reducing the time clients spend searching for books through classifications.
+
+The system presented by Nursultan Kurmashov et al. in their book 'Online Book Idea Structure' (February 2016) clearly demonstrates its capability to thoroughly analyze books.   By allowing the client to add their favorite books and considering their top choices, the system recommends books to the user. While this can be an effective way to endorse books, it can also be tedious for the client to search for the best books in every category.
+
+A method was introduced by Vivek Kumar et al. to recommend books across different domains, which utilizes tensor decomposition and semantic similarity techniques.   To enhance the precision of recommendations in the target domain, additional user preference data is extracted from a secondary domain.   A higher hit ratio is achieved by this approach, which mitigates the problem of data sparsity, as demonstrated by the results of experiments.
+
+A system intended for reading books was presented by Nursultan Kurmashov et al. [5].   Users must register and add their preferred books to the system, which will then suggest similar books to the user.   Although this method can be useful in providing tailored suggestions, it fails to grant access to the highest-rated books in every genre, which compels users to spend additional time searching for alternative titles.
+
+
+
+
+III.	METHODOLOGY
+
+K-Nearest Neighbors (KNN) is a well-known machine learning technique used for classification and regression problems.   Comparable objects have a tendency to cluster together in a multi-dimensional space, which is the notion on which the technique is predicated.   In the context of book recommendation systems, the KNN algorithm can suggest novels to readers based on the similarity between the books.   The K books that are closest to a specific book are found by the algorithm, and then novels similar to those neighbors are suggested.    Based on their attributes, the KNN algorithm determines the similarity between two books.   The similarity is usually calculated using a distance metric such as Euclidean distance or cosine similarity.
+Based on their attributes, the KNN algorithm calculates the similarity between two books.   The similarity is usually calculated using a distance metric such as Euclidean distance or cosine similarity.   After calculating the similarity scores, the method suggests books that are comparable to the K nearest neighbors of a particular book.
+
+
+1.	Data collection
+
+Gather information on books, including their writers, categories, summaries, ratings, and critiques.   You can gather this information by using online resources such as Goodreads and Amazon.
+
+2.	Data pre-processing  
+
+The data should have its categorical variables converted into numerical variables, missing values handled, and duplicates removed.   Different genres can be encoded using one-hot encoding, for example.
+
+Book Recommendation System using KNN Algorithm
+
+
+
+
+
+

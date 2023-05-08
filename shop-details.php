@@ -445,27 +445,30 @@
 
     if ($response != null && !empty($response)) {
         $data_arr = json_decode($response);
-
-        foreach ($data_arr as $book) {
-            echo '<div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">'.$book->title.'</h5>
-                    <p class="card-author">'.$book->author.'</p>
-                </div>
-                <div class="card-img">
-                    <img src="'.$book->image.'" alt="'.$book->title.'" class="img-fluid">
-                </div>
-            </div>';
+    
+        if (!is_null($data_arr) && is_array($data_arr)) {
+            foreach ($data_arr as $book) {
+                echo '<div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">'.$book->title.'</h5>
+                        <p class="card-author">'.$book->author.'</p>
+                    </div>
+                    <div class="card-img">
+                        <img src="'.$book->image.'" alt="'.$book->title.'" class="img-fluid">
+                    </div>
+                </div>';
+            }
+        } else {
+            echo "No books found.";
         }
     } else {
-        echo "No books found";
+        echo "Error: No response received";
     }
+    
 ?>
     </div>
   </div>
 </div>
-
-
 
                 <div class="col-lg-12">
                     <div class="product__details__tab">

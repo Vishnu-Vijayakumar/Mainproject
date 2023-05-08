@@ -17,7 +17,7 @@
 
     $conn = mysqli_connect($server,$user,$password,$db);
 
-    $sql="SELECT * from tbl_bookinfo where book_language='Malayam'";
+    $sql="SELECT * from tbl_bookinfo where book_language='Hindi'";
     $result=$conn-> query($sql);
 ?>
 

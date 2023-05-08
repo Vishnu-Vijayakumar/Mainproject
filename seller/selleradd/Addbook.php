@@ -75,22 +75,117 @@
               
 
  <label> Book Name: </label>
- <input type="text" name="pname" id="pName" autofocus="false" autocomplete="off" class="form-control"  placeholder="Enter Book Name" required> <br>
+<input type="text" name="pname" id="pName" autofocus="false" autocomplete="off" class="form-control" placeholder="Enter Book Name" required> <br>
+<div id="pNameError" class="error-message"></div>
 
- <label> Book Price: </label>
- <input type="text" name="pprice" id="pPrice" autofocus="false" autocomplete="off" class="form-control"  placeholder="Enter Book Price" required> <br>
+<label> Book Price: </label>
+<input type="text" name="pprice" id="pPrice" autofocus="false" autocomplete="off" class="form-control" placeholder="Enter Book Price" required> <br>
 
- <label> Book Author: </label>
- <input type="text" name="pauthor" id="pOffer" autofocus="false" autocomplete="off" class="form-control"  placeholder="Enter Book Author" required> <br>
+<style>
+  .error {
+    border-color: red;
+  }
+</style>
 
- <label> Book Category: </label>
- <input type="text" name="pOffer" id="pOffer" autofocus="false" autocomplete="off" class="form-control"  placeholder="Enter Book Category" required> <br>
- 
+<script>
+  // Get the input element
+  const pPrice = document.getElementById('pPrice');
+
+  // Add event listener to the input to validate it
+  pPrice.addEventListener('input', function() {
+    const value = pPrice.value.trim();
+    if (isNaN(value) || value < 0) {
+      pPrice.classList.add('error');
+    } else {
+      pPrice.classList.remove('error');
+    }
+  });
+</script>
+
+<label> Book Author: </label>
+<input type="text" name="pauthor" id="pAuthor" autofocus="false" autocomplete="off" class="form-control" placeholder="Enter Book Author" required> <br>
+
+<style>
+  .error {
+    border: 2px solid red;
+  }
+</style>
+
+<script>
+  // Get the input element
+  const pAuthor = document.getElementById('pAuthor');
+
+  // Add event listener to the input to validate it
+  pAuthor.addEventListener('input', function() {
+    if (pAuthor.value.trim() === '') {
+      pAuthor.classList.add('error');
+      pAuthor.setCustomValidity('Please enter a book author.');
+    } else if (pAuthor.value.trim().split(' ')[0][0] !== pAuthor.value.trim().split(' ')[0][0].toUpperCase()) {
+      pAuthor.classList.add('error');
+      pAuthor.setCustomValidity('The first name of the author must be capitalized.');
+    } else {
+      pAuthor.classList.remove('error');
+      pAuthor.setCustomValidity('');
+    }
+  });
+</script>
+
+
+<label> Book Category: </label>
+<input type="text" name="pOffer" id="pOffer" autofocus="false" autocomplete="off" class="form-control"  placeholder="Enter Book Category" required> <br>
+
+<style>
+  .error {
+    border: 2px solid red;
+  }
+</style>
+
+<script>
+  // Get the input element
+  const pOffer = document.getElementById('pOffer');
+
+  // Add event listener to the input to validate it
+  pOffer.addEventListener('input', function() {
+    const regex = /^[A-Za-z ]+$/;
+    if (!regex.test(pOffer.value.trim())) {
+      pOffer.classList.add('error');
+      pOffer.setCustomValidity('Please enter a valid book category (letters and spaces only).');
+    } else {
+      pOffer.classList.remove('error');
+      pOffer.setCustomValidity('');
+    }
+  });
+</script>
+
  <label> Book Language: </label>
  <input type="text" name="language" id="pFeature" autofocus="false" autocomplete="off" class="form-control"  placeholder="Enter Book Language" required> <br>
 
  <label> Book Stock: </label>
- <input type="text" name="stock" id="pstock" autofocus="false" autocomplete="off" class="form-control"  placeholder="Enter Book Stock" required> <br>
+<input type="text" name="stock" id="pstock" autofocus="false" autocomplete="off" class="form-control"  placeholder="Enter Book Stock" required> <br>
+
+<style>
+  .error {
+    border: 2px solid red;
+  }
+</style>
+
+<script>
+  // Get the input element
+  const pstock = document.getElementById('pstock');
+
+  // Add event listener to the input to validate it
+  pstock.addEventListener('input', function() {
+    const regex = /^[0-9]+$/;
+    if (!regex.test(pstock.value.trim())) {
+      pstock.classList.add('error');
+      pstock.setCustomValidity('Please enter only numbers for book stock.');
+    } else {
+      pstock.classList.remove('error');
+      pstock.setCustomValidity('');
+    }
+  });
+</script>
+
 
  <label> Upload Image: </label>
  <input type="file" name="pimage" id="pImage" autofocus="false" autocomplete="off" class="form-control" required> <br>
@@ -104,6 +199,6 @@
  
  </form>
  </div>
- <script src="add.js"></script>
+ <script src="validation.js"></script>
 </body>
 </html>

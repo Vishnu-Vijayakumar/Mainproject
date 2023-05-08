@@ -1,5 +1,7 @@
 <div id="ordersBtn" >
   <h2>Order Details</h2>
+  <a href="./adminView/orderdetails.php"><button type="submit"  class="btn btn-primary" >You can upload here!</button></a>
+
   <table class="table table-striped">
     <thead>
       <tr>
@@ -21,12 +23,14 @@
       if ($result-> num_rows > 0){
         while ($row=$result-> fetch_assoc()) {
     ?>
+    
        <tr>
           <td><?=$row["order_id"]?></td>
           <td><?=$row["name"]?></td>
           <td><?=$row["phone"]?></td>
           <td><?=$row["order_date"]?></td>
           <td><?=$row["email"]?></td>
+          
            <?php 
                 if($row["order_id"]==1){
                             
@@ -74,7 +78,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="order-view-modal modal-body">
-        
+
         </div>
       </div><!--/ Modal content-->
     </div><!-- /Modal dialog-->

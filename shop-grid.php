@@ -315,18 +315,18 @@
                 <div class="col-lg-3 col-md-5">
                     <div class="sidebar">
                         <div class="sidebar__item">
-                            <h4>Department</h4>
+                            <h4>Top Items</h4>
                             <ul>
 
                             <li> <a href="fiction.php"  onclick="showfiction()" ><i class="fa fa-list"></i> Fiction</a></li>
                             <li><a href="story.php"  onclick="showdevolepment()" ><i class="fa fa-list"></i> Story</a></li>
-                            <li><a href="#story"  onclick="showstory()" ><i class="fa fa-list"></i> </a></li>
+                            <!-- <li><a href="#story"  onclick="showstory()" ><i class="fa fa-list"></i> </a></li> -->
 
 
-                            <li><a href="#">Fiction</a></li>
+                            <!-- <li><a href="#">Fiction</a></li>
                             <li><a href="#">Academics</a></li>
                             <li><a href="#">Philosophy</a></li>
-                            <li><a href="#">Religion</a></li>
+                            <li><a href="#">Religion</a></li> -->
 
 
                             </ul>

@@ -1,4 +1,7 @@
-<?php require_once "sellerbook_functions.php"; ?>
+<?php require_once "sellerbook_functions.php";
+
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,9 +32,7 @@
                     ?>
                     
 
-                    
-
-                            
+                                     
                     <div class="custom_select" id="role-div" style="margin-left: 0px;">
                         <i class="fa fa-tasks icon"></i>
                        

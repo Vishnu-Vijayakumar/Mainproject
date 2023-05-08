@@ -1,0 +1,29 @@
+Vivek Kumar et al. [8] presented a cross-domain book recommendation approach using tensor decomposition and semantic similarity techniques. In this approach, information is extracted from the secondary domain, which contains extra
+user preference information increasing the recommendation’s accuracy in the goal domain. The experimental result shows that the data sparsity problem is alleviated and a better hit ratio is achieved.
+ 
+Vivek Kumar and colleagues (8) introduced a method for recommending books across different domains by utilizing tensor decomposition and semantic similarity techniques. This method involves extracting information from a secondary domain, which provides additional user preference data to improve the accuracy of recommendations in the target domain. The results of experiments demonstrate that this approach mitigates the problem of data sparsity and yields a higher hit ratio.
+
+
+ Nursultan Kurmashov et al. [5] presented a system designed for book reading. The system requires users to register and add their favorite books, which are then used to recommend similar books to the user. While this approach can be effective for personalized recommendations, it does not provide access to top-rated books in each category, forcing users to spend time searching for other books.
+
+
+
+By analyzing the content features of books, such as genre, author, and keywords, KNN can identify similar books and make personalized recommendations to users.
+
+This approach can give more exact proposals than cooperative sifting techniques in situations where client information is meager or inaccessible.
+
+
+
+The content-based filtering approach is effective in situations where the user's preferences are well-defined, and there is sufficient data available to identify the relevant book features. The system can provide personalized recommendations that match the user's interests, and the recommendations can be refined over time as the user interacts with the system.
+3rd International Conference on Computing, Mathematics and Engineering Technologies (iCoMET) (pp. 1-6). IEEE.
+
+
+When the user's preferences are clearly specified and there is enough data to identify the pertinent book aspects, the content-based filtering strategy is effective. As the user interacts with the system, the system can offer personalised recommendations that are tailored to the user's interests and can be improved over time.
+
+
+Overall, the KNN algorithm-based content-based filtering book recommendation system is an efficient and effective technique to suggest books to users based on their selected book categories, enhancing user experience. and promote engagement with the book's content. 
+
+
+The filtering approach that relies on content can be highly successful if a user's tastes are specific and there's plenty of data to assess pertinent book qualities. Specifically tailored suggestions can be made that align with a customer's inclinations, and modifications can be implemented over time based on how a user interacts with the system.
+
+Improving user experience, the KNN algorithm with content-based filtering is a successful approach to book recommendation systems by recommending books based on users' favorite genres. Increasing interaction with book content, this method is efficient and effective for providing readers with their ideal book suggestions.

@@ -83,3 +83,23 @@
   background-color: #138496;
   border-color: #117a8b;
 }
+.error {
+  border: 1px solid red;
+}
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.error {
+  border-color: red;
+}
+.error {
+  border: 2px solid red;
+}
+.error {
+  border: 2px solid red;
+}
+.error {
+  border: 2px solid red;
+}

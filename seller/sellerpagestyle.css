@@ -135,3 +135,37 @@ body.active .wrapper .section {
     margin-left: 0;
     width: 100%;
 }
+/* Change the background color of the table header */
+thead {
+    background-color: #343a40;
+    color: #fff;
+  }
+  
+  /* Add some padding to the table cells */
+  td, th {
+    padding: 10px;
+  }
+  
+  /* Add some border-radius to the buttons */
+  .btn {
+    border-radius: 20px;
+  }
+  
+  /* Change the background color and text color of the Edit button */
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Change the background color and text color of the Delete button */
+  .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  /* Add some margin to the top and bottom of the container */
+  .container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
