@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
     include 'connection.php';
 
     if(isset($_POST['place_order'])){
@@ -33,7 +33,7 @@
         }
     }
 
-    session_start();
+    
     $email_id= $_SESSION['user_emailid'];
     $user_details_res= mysqli_query($conn,"SELECT * from tbl_registration WHERE email='$email_id'");
     if($user_details_res && mysqli_num_rows($user_details_res) > 0){
@@ -625,7 +625,7 @@
             success:function(result){
                 if(result=="true"){
                     alert('Payment Done Successfully...');
-                    window.location.href="index.php";
+                    window.location.href="bill.php";
                 }
                 else{
                     alert('Payment Failed !! Please try again !! Error : '+result);

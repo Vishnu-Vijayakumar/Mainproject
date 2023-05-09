@@ -1,6 +1,6 @@
 <?php
-include("../connection.php");
 session_start();
+include("../connection.php");
 $login_id= $_SESSION['user_loginid'];
 if(isset($_POST['payment_id'])){
     $payment_id=$_POST['payment_id'];
@@ -32,6 +32,8 @@ if(isset($_POST['payment_id'])){
                 $cart_update= mysqli_query($conn, "UPDATE tbl_cart SET cart_buy_status=1 WHERE cart_id=".$cartid_arr[$i]);
                 $i++;
             }
+            $pay_id=mysqli_insert_id($conn);
+            $_SESSION['pay_id']=$payment_id;
             echo "true";
         }
         else{

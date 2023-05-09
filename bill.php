@@ -1,8 +1,7 @@
 <?php
 session_start();
 $pay_id=$_SESSION['pay_id'];
-// echo "pay_id: ".$pay_id;
-// $pay_id=26;
+echo "pay_id: ".$pay_id;
 if(isset($_SESSION['user_emailid'])){
 	$email=$_SESSION['user_emailid'];
 	//$pid=$_SESSION['pid'];
@@ -22,7 +21,7 @@ if(isset($_SESSION['user_emailid'])){
 
 	if (isset($pay_id)) {
 		$login=$_SESSION['user_emailid'];
-		$disp="SELECT *FROM tbl_order JOIN tbl_payment ON tbl_order.pay_id=tbl_payment.pay_id WHERE tbl_payment.pay_id='$pay_id'";
+		$disp="SELECT *FROM tbl_order JOIN tbl_payment ON tbl_order.pay_id=tbl_payment.pay_id WHERE tbl_payment.payment_id='$pay_id'";
 		$disp_result=mysqli_query($conn,$disp);
 	}
 }
@@ -109,8 +108,8 @@ if(isset($disp_result)) {
 <!-- <tr><th>Product Name:</th><td><?php echo $array['book_name']; ?></td></tr>
 <tr><th>Ordered Quantity:</th><td><?php echo $array['purchase_qty'] ?></td></tr> -->
 <tr>
-    <th>Payid Amount</th>
-    <td><?php echo $array['pay_id']; ?></td>
+    <th>Payid</th>
+    <td><?php echo $pay_id; ?></td>
 </tr>
 <tr>
     <th>Ordered date:</th>
