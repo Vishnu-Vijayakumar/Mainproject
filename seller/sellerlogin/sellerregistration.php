@@ -67,26 +67,28 @@
 
                 <div class="card-body">
                 <form action="sellerbook_functions.php" method="POST" autocomplete="">
-                        <div class="form-row m-b-55">
-                            <div class="name">Name</div>
-                            <div class="value">
-                                <div class="row row-space">
-                                    <div class="col-2">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="first_name">
-                                            <label class="label--desc">first name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="last_name">
-                                            <label class="label--desc">last name</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
+                <div class="form-row m-b-55">
+  <div class="name">Name</div>
+  <div class="value">
+    <div class="row row-space">
+      <div class="col-2">
+        <div class="input-group-desc">
+          <input class="input--style-5" type="text" name="first_name" placeholder="first name">
+          <!-- <label class="label--desc">first name</label> -->
+          <!-- <div class="invalid-feedback">Please enter a valid first name</div> -->
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="input-group-desc">
+          <input class="input--style-5" type="text" name="last_name" placeholder="last name">
+          <!-- <label class="label--desc">last name</label> -->
+          <!-- <div class="invalid-feedback">Please enter a valid last name</div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
                         <div class="form-row m-b-55">
                             <div class="name">password</div>
@@ -94,15 +96,15 @@
                                 <div class="row row-space">
                                 <div class="col-2">
     <div class="input-group-desc">
-        <input class="input--style-5" type="password" name="Password" id="password">
-        <label class="label--desc">Password</label>
+        <input class="input--style-5" type="password" name="Password" id="password" placeholder="Password">
+        <!-- <label class="label--desc">Password</label> -->
         <div class="invalid-feedback"></div>
     </div>
 </div>
 <div class="col-2">
     <div class="input-group-desc">
-        <input class="input--style-5" type="password" name="Confirm_Password" id="confirm_password">
-        <label class="label--desc">Confirm password</label>
+        <input class="input--style-5" type="password" name="Confirm_Password" id="confirm_password" placeholder="Confirm password">
+        <!-- <label class="label--desc">Confirm password</label> -->
         <div class="invalid-feedback"></div>
     </div>
 </div>
@@ -120,10 +122,11 @@
                         </div>
                         
                         <div class="form-row">
-                            <div class="name">Company</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="company">
+                        <div class="name">Company</div>
+  <div class="value">
+    <div class="input-group">
+      <input class="input--style-5" type="text" name="company" id="company-input">
+      <div id="company-error" class="error-message"></div>
                                 </div>
                             </div>
                         </div>

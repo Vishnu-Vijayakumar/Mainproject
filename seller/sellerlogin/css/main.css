@@ -768,3 +768,42 @@ input {
     padding-bottom: 50px;
   }
 }
+.input--style-5.is-invalid {
+  border: 2px solid #dc3545;
+}
+
+.invalid-feedback {
+  display: none;
+  color: #dc3545;
+  font-size: 12px;
+}
+
+.input--style-5.is-invalid + .invalid-feedback {
+  display: block;
+}
+.invalid-feedback {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.is-invalid {
+  border-color: red;
+}
+.invalid-feedback {
+  display: none;
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+.invalid-feedback:empty {
+  margin: 0;
+}
+.invalid-feedback:not(:empty) {
+  display: block;
+}
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}

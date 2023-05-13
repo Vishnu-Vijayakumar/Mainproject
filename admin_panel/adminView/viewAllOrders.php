@@ -1,6 +1,6 @@
 <div id="ordersBtn" >
   <h2>Order Details</h2>
-  <a href="./adminView/orderdetails.php"><button type="submit"  class="btn btn-primary" >You can upload here!</button></a>
+  <a href="../orderdetails.php"><button type="submit"  class="btn btn-primary" >Click here!</button></a>
 
   <table class="table table-striped">
     <thead>

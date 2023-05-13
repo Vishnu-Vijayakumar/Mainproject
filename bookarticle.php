@@ -549,7 +549,7 @@
             <div class="card-body"><?php echo htmlentities($row['pdf']);?></div>
           </div>
           <div class="card">
-            <div class="card-body"><a href=".\admin_panel\articlepdf\display_pdf.php?id=<?php echo $row['id']?>">View/Download</a></div>
+            <div class="card-body "><a href=".\admin_panel\articlepdf\display_pdf.php?id=<?php echo $row['id']?>">View/Download</a></div>
           </div>
         <?php $cnt=$cnt+1; } ?>
       </div>

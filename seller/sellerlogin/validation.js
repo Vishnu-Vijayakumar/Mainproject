@@ -1,71 +1,60 @@
-const form = document.querySelector('#myForm');
-const firstName = document.querySelector('#first_name');
-const lastName = document.querySelector('#last_name');
+// Get references to input fields
+const firstNameInput = document.querySelector('input[name="first_name"]');
+const lastNameInput = document.querySelector('input[name="last_name"]');
 
-form.addEventListener('submit', function(event) {
-    if (firstName.value.trim() === '') {
-        event.preventDefault(); // prevent the form from submitting
-        alert('Please enter your first name.');
-        return false;
-    }
+// Regular expression for validating name fields
+const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
 
-    if (lastName.value.trim() === '') {
-        event.preventDefault(); // prevent the form from submitting
-        alert('Please enter your last name.');
-        return false;
-    }
-});
-const password = document.querySelector('#password');
-const confirm_password = document.querySelector('#confirm_password');
-
-password.addEventListener('input', function() {
-    const feedback = password.parentNode.querySelector('.invalid-feedback');
-    // check if password meets the required criteria
-    if (!isValidPassword(password.value)) {
-        feedback.textContent = 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.';
-        password.classList.add('is-invalid');
-    } else {
-        feedback.textContent = '';
-        password.classList.remove('is-invalid');
-    }
-    // check if passwords match
-    if (confirm_password.value !== '' && password.value !== confirm_password.value) {
-        const confirmFeedback = confirm_password.parentNode.querySelector('.invalid-feedback');
-        confirmFeedback.textContent = 'Passwords do not match.';
-        confirm_password.classList.add('is-invalid');
-    } else {
-        const confirmFeedback = confirm_password.parentNode.querySelector('.invalid-feedback');
-        confirmFeedback.textContent = '';
-        confirm_password.classList.remove('is-invalid');
-    }
+// Add event listeners to input fields
+firstNameInput.addEventListener('input', () => {
+  if (nameRegex.test(firstNameInput.value)) {
+    firstNameInput.classList.remove('is-invalid');
+  } else {
+    firstNameInput.classList.add('is-invalid');
+  }
 });
 
-confirm_password.addEventListener('input', function() {
-    const feedback = confirm_password.parentNode.querySelector('.invalid-feedback');
-    // check if passwords match
-    if (password.value !== confirm_password.value) {
-        feedback.textContent = 'Passwords do not match.';
-        confirm_password.classList.add('is-invalid');
-    } else {
-        feedback.textContent = '';
-        confirm_password.classList.remove('is-invalid');
-    }
+lastNameInput.addEventListener('input', () => {
+  if (nameRegex.test(lastNameInput.value)) {
+    lastNameInput.classList.remove('is-invalid');
+  } else {
+    lastNameInput.classList.add('is-invalid');
+  }
 });
 
-function isValidPassword(password) {
-    const pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{8,}$/;
-    return pattern.test(password);
-}
-const username = document.querySelector('input[name="Username"]');
+const passwordInput = document.querySelector('#password');
+const confirmInput = document.querySelector('#confirm_password');
+const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
-username.addEventListener('input', function() {
-    // check if username meets the required criteria
-    if (!isValidUsername(username.value)) {
-        username.setCustomValidity('Username must be at least 4 characters long and contain only letters, numbers, and underscores.');
-    } else {
-        username.setCustomValidity('');
-    }
+// Add event listener to the password field
+passwordInput.addEventListener('input', () => {
+  const password = passwordInput.value.trim();
+  const feedback = passwordInput.parentNode.querySelector('.invalid-feedback');
+  if (password.length === 0) {
+    feedback.innerText = 'Please enter a password';
+    feedback.style.display = 'block';
+  } else if (!passwordRegex.test(password)) {
+    feedback.innerText = 'Password must contain at least 8 characters with at least one uppercase letter, one lowercase letter, and one number.';
+    feedback.style.display = 'block';
+  } else {
+    feedback.innerText = '';
+    feedback.style.display = 'none';
+  }
 });
+
+// Add event listener to the confirm password field
+confirmInput.addEventListener('input', () => {
+  const confirm = confirmInput.value.trim();
+  const feedback = confirmInput.parentNode.querySelector('.invalid-feedback');
+  if (confirm !== passwordInput.value.trim()) {
+    feedback.innerText = 'Passwords do not match';
+    feedback.style.display = 'block';
+  } else {
+    feedback.innerText = '';
+    feedback.style.display = 'none';
+  }
+});
+
 
 function isValidUsername(username) {
     const pattern = /^[a-zA-Z0-9_]{4,}$/;

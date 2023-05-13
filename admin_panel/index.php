@@ -1,4 +1,9 @@
-
+<!-- <?php
+    // session_start();
+    // if(isset($_SESSION["admin_name"])) {
+    //     header("location: index.php");
+    // }
+?> -->
 
 <!DOCTYPE html>
 <html>
@@ -16,7 +21,7 @@
         <?php
             include "./adminHeader.php";
             include "./sidebar.php";
-           
+        //    include "loginprocess.php";
             include_once "./config/dbconnect.php";
         ?>
 
