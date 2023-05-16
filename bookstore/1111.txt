@@ -1,0 +1,58 @@
+PHP is a server-side prearranging language intended for web improvement yet in addition utilized as a universally useful programming language. PHP is presently introduced on in excess of 244 million sites and 2.1 million web servers. Initially made by Rasmus Ledcor in 1995, the reference execution of PHP is currently created by the PHP bunch. While PHP initially represented individual landing page
+,it presently represents PHP:HypertextPreprocessor, a recursive acronym.PHP code is deciphered by a web server with a PHP processor module which creates the subsequent page. PHP orders can be inserted straightforwardly into a HTML source record instead of calling an outer document to handle information. It has likewise developed to incorporate an order line interface capacity and can be utilized in independent contradictory with the GNU Overall population Permit (GPL) because of limitations on the use of the term PHP.PHP can be sent on most web servers and furthermore as an independent shell on pretty much every working framework and stage, for nothing.
+
+
+
+Providing a platform or service for storing, serving, and managing websites, applications, or data on
+the internet is the process of hosting. Web hosting is a widespread sort of hosting that allows
+individuals and businesses to make their websites available on the internet. There are various kinds of
+web hosting, including managed hosting, cloud hosting, shared hosting, and VPS hosting. Given that
+it involves sharing server resources with other websites, shared hosting is the most cost-effective
+choice. When compared to dedicated hosting, PS hosting provides more control and flexibility over
+server resources. Cloud hosting delivers scalability and high availability by hosting websites and apps
+on several servers.
+
+
+000webhost is a free web hosting service provider. It offers free web hosting plans that allow users to host their websites without any cost. The service is popular among individuals, small businesses, and beginner web developers who are looking for a cost-effective hosting solution.
+
+000webhost provides features such as a website builder, a one-click installer for popular web applications, PHP and MySQL support, and a user-friendly control panel. It also offers a free subdomain (yourwebsite.000webhostapp.com) for hosting websites.
+
+While 000webhost provides free hosting, it may have some limitations compared to paid hosting services. These limitations can include lower server resources, limited storage and bandwidth, and occasional advertisements displayed on the websites.
+
+It's important to note that 000webhost is just one of many web hosting providers available, and users should consider their specific needs and requirements before choosing a hosting service.
+
+
+
+
+
+Sign up for an account:
+
+Visit the 000Webhost website (https://www.000webhost.com/) and click on the "Get Started for Free" button.
+Fill in the required information and create a new account.
+Create a new website:
+
+After signing up and logging in, you'll be redirected to the 000Webhost dashboard.
+Click on the "New Website" button.
+Enter a name for your website and choose a password.
+Choose a website builder or upload your own website:
+
+000Webhost provides a website builder tool called "Zyro" that you can use to create your website easily. Alternatively, you can choose to upload your own website files.
+If you want to use the website builder, select the "Zyro Website Builder" option and follow the prompts to create your website.
+If you prefer to upload your own website, select the "Upload your website" option and proceed to the next step.
+Upload your website files (if applicable):
+
+If you selected the option to upload your own website, you'll need to upload your website files using an FTP client or the 000Webhost File Manager.
+Connect to your hosting account using FTP credentials provided by 000Webhost or use the File Manager in the control panel to upload your files.
+Configure your domain:
+
+000Webhost provides a free subdomain by default (e.g., yourwebsite.000webhostapp.com). If you have a custom domain, you can also connect it to your 000Webhost account.
+To configure a custom domain, go to the "Set web address" section in the 000Webhost dashboard and follow the instructions to add and verify your domain.
+Manage your website settings:
+
+In the 000Webhost dashboard, you'll find various settings and options to manage your website.
+You can set up email accounts, manage databases, configure SSL certificates, and more depending on your website's requirements.
+Test and publish your website:
+
+Once your website files are uploaded and the domain is configured, you can test your website by accessing it through the assigned domain or subdomain.
+Make sure to thoroughly test your website to ensure everything is working correctly.
+If everything looks good, you can consider your website published and accessible to the public.

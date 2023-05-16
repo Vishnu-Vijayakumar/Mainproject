@@ -96,6 +96,13 @@ $book_total_price = 0;
 // Make sure $disp_result is defined and has a valid value
 if(isset($disp_result)) {
     while($array=mysqli_fetch_array($disp_result)) {
+      $book_res= mysqli_query($conn,"SELECT * from tbl_bookinfo WHERE book_id=".$cart_row['book_id']);
+if($book_res && mysqli_num_rows($book_res) > 0){
+    $book_row= mysqli_fetch_array($book_res);
+    echo "<li>".$book_row['book_name']."<span>₹".$book_row['book_price']."</span></li>";
+    $book_total_price= $book_total_price + ($book_row['book_price']*$cart_row['quantity']);
+}
+
 ?>
     <tr>
     <th>Customer Name:</th>
@@ -123,6 +130,7 @@ if(isset($disp_result)) {
     <th>Pincode:</th>
     <td><?php echo $array['pincode'] ?></td>
 </tr>
+
 <tr>
     <th>Total Amount:</th>
     <td>₹<?php echo $array['amount']; ?></td>

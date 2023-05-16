@@ -1,0 +1,8 @@
+#Vishnuvjk25
+id20754040_bookstore DB-Name
+id20754040_root DB-user
+
+
+A collaboration diagram, also known as a communication diagram, is a type of interaction diagram in the Unified Modeling Language (UML). It illustrates how objects and components within a system interact with each other to accomplish a specific task or scenario. Collaboration diagrams emphasize the structural organization of objects and the messages exchanged between them during a particular interaction.
+
+In a collaboration diagram, objects are represented by rectangles or squares, and the relationships between them are depicted by labeled arrows or lines. The diagram typically shows the sequence of messages exchanged between objects to accomplish a specific behavior or task. The messages are represented as labeled arrows or lines connecting the objects, indicating the direction of communication.

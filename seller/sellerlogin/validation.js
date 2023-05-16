@@ -54,6 +54,48 @@ confirmInput.addEventListener('input', () => {
     feedback.style.display = 'none';
   }
 });
+const emailInput = document.getElementById('email-input');
+const emailValidationMessage = document.getElementById('email-validation-message');
+
+emailInput.addEventListener('input', () => {
+  const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  const isValidEmail = emailRegex.test(emailInput.value);
+
+  if (isValidEmail) {
+    emailInput.classList.remove('invalid');
+    emailValidationMessage.classList.remove('active');
+  } else {
+    emailInput.classList.add('invalid');
+    emailValidationMessage.classList.add('active');
+    emailValidationMessage.innerText = 'Please enter a valid email address';
+  }
+});
+const phoneInput = document.querySelector('input[name="phone"]');
+
+phoneInput.addEventListener('input', () => {
+  const regex = /^[0-9]{10}$/; // regular expression to validate a 10-digit phone number
+  const phoneValue = phoneInput.value;
+  const error = document.querySelector('.error');
+
+  if (!regex.test(phoneValue)) {
+    phoneInput.classList.add('invalid');
+    error.textContent = 'Please enter a valid 10-digit phone number.';
+  } else {
+    phoneInput.classList.remove('invalid');
+    error.textContent = '';
+  }
+});
+function validatePhoneNumber(input) {
+  const phoneRegex = /^[0-9]+$/; // only allow numbers
+  const phoneInput = input.value;
+  const phoneError = document.getElementById("phone-error");
+
+  if (phoneInput.match(phoneRegex)) {
+    phoneError.innerText = ""; // clear error message
+  } else {
+    phoneError.innerText = "Please enter only numbers."; // display error message
+  }
+}
 
 
 function isValidUsername(username) {

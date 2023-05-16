@@ -1,4 +1,12 @@
-<?php require_once "controllerUserData.php"; ?>
+<?php require_once "book_functions.php"; ?>
+
+<?php
+$email = '';
+if (isset($_POST['email'])) {
+    $email = $_POST['email'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

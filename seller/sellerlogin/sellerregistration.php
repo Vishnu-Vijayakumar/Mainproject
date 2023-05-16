@@ -12,7 +12,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>Au Register Forms by Colorlib</title>
+    <title>Seller Registration</title>
 
     <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -131,12 +131,14 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="name">Email</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email">
-                                </div>
-                            </div>
+                        <div class="name">Email</div>
+<div class="value">
+  <div class="input-group">
+    <input class="input--style-5" type="email" name="email" id="email-input">
+    <span id="email-validation-message" class="validation-message"></span>
+  </div>
+</div>
+
                         </div>
                         <div class="form-row m-b-55">
                             <div class="name">Phone</div>
@@ -149,10 +151,12 @@
                                         </div>
                                     </div>
                                     <div class="col-9">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="phone">
-                                            <label class="label--desc">Phone Number</label>
-                                        </div>
+                                    <div class="input-group-desc">
+  <input class="input--style-5" placeholder="phone number" type="text" name="phone" oninput="validatePhoneNumber(this)">
+  <!-- <label class="label--desc">Phone Number</label> -->
+  <div id="phone-error" class="error-message"></div>
+</div>
+
                                     </div>
                                 </div>
                             </div>
